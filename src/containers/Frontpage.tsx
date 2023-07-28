@@ -1,7 +1,8 @@
 import { Box, Grid, GridItem, useColorModeValue } from "@chakra-ui/react";
-import { ColorModeSwitcher } from "../ColorModeSwitcher";
-import Navbar from "../Navbar";
-import Carousel from "../Carousel";
+import { ColorModeSwitcher } from "../elements/ColorModeSwitcher";
+import Navbar from "../elements/Navbar";
+import Carousel from "../elements/Carousel";
+import Cards from "../elements/Cards";
 
 const Frontpage = () => {
   return (
@@ -24,7 +25,7 @@ bg={useColorModeValue('linear-gradient( to bottom right, rgba(244, 244, 244, 1),
 </GridItem>
 
 <GridItem rowSpan={3} h='800px' zIndex='base' >
-{/* <Container h='lg' /> */}
+    <Cards/>
 </GridItem>
 </Grid>
 )
