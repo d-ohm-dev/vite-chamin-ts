@@ -4,6 +4,7 @@ import Navbar from "../elements/Navbar";
 import Carousel from "../elements/Carousel";
 import Cards from "../elements/Cards";
 import Footer from "../elements/Footer";
+import GridListCTA from "../elements/GridListCTA";
 
 const Frontpage = () => {
   return (
@@ -29,9 +30,14 @@ const Frontpage = () => {
         <Cards/>
       </GridItem>
 
-    <GridItem rowSpan={4} colSpan={1} >
-      <Footer/>
-    </GridItem>
+      <GridItem rowSpan={4} colSpan={1} >
+        <GridListCTA/>
+      </GridItem>
+
+      <GridItem rowSpan={5} colSpan={1} >
+        <Footer/>
+      </GridItem>
+
 
     </Grid>
   </Box>

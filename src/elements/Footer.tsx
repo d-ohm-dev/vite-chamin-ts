@@ -2,6 +2,8 @@
 
 import logo from '../assets/fotos/logo.png';
 import invlogo from '../assets/fotos/invlogo.png';
+import bgimgl from '../assets/fotos/FondoWebRecSky.jpg'
+import bgimgd from '../assets/fotos/FondoWebRecNight.png'
 
 import {
   Box,
@@ -60,10 +62,14 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
 }
 
 export default function Footer() {
-  const SwitchImg = useColorModeValue(logo, invlogo);
+  const SwitchLogo = useColorModeValue(logo, invlogo);
+  const SwitchBg = useColorModeValue(bgimgl, bgimgd);
   return (
     <Box
-      bg={useColorModeValue('gray.50', 'gray.900')}
+      backgroundImage={SwitchBg}
+      backgroundPosition="center"
+      backgroundRepeat="no-repeat"
+      backgroundSize={{base: 'contain', md: 'contain', lg: 'cover'}}
       color={useColorModeValue('gray.700', 'gray.200')}>
       <Container as={Stack} maxW={'6xl'} py={10}>
         <SimpleGrid
@@ -71,7 +77,7 @@ export default function Footer() {
           spacing={8}>
           <Stack spacing={6}>
             <Box>
-              <Img src={SwitchImg} alt="Logo" maxH='55%' maxW='55%' mr={{base: -200}} mt={{base: 1}} />
+              <Img src={SwitchLogo} alt="Logo" maxH='55%' maxW='55%' mr={{base: -200}} mt={{base: 1}} />
             </Box>
             <Stack direction={'row'} spacing={6}>
               <SocialButton label={'Twitter'} href={'#'}>
@@ -114,16 +120,17 @@ export default function Footer() {
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Conocer ultimas ofertas</ListHeader>
-            <Stack direction={'row'}>
+            <Stack direction={'row'} >
               <Input
                 placeholder={'Tu correo electrónico'}
-                bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
+                bg={useColorModeValue('blackAlpha.400', 'whiteAlpha.400')}
                 border={0}
                 _focus={{
-                  bg: 'whiteAlpha.300',
+                  bg: 'whiteAlpha.600',
                 }}
               />
               <IconButton
+                boxSize={'4xs'}
                 bg={useColorModeValue('green.400', 'green.800')}
                 color={useColorModeValue('white', 'gray.800')}
                 _hover={{

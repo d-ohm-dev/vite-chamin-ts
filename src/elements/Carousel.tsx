@@ -6,13 +6,16 @@ import {
   Box,
   IconButton,
   useBreakpointValue,
-  Heading,
-  Text,
+  // Heading,
+  // Text,
   Container,
   GridItem,
   // useBoolean,
-  Center,
+  // Center,
   VStack,
+  chakra,
+  Button,
+  Flex,
   useColorMode,
 } from '@chakra-ui/react';
 // Here we have used react-icons package for the icons
@@ -70,7 +73,7 @@ export default function Carousel() {
     },
   ];
 
-  const { colorMode, toggleColorMode } = useColorMode()
+  const {toggleColorMode}  = useColorMode()
 
   // const { isOpen, onToggle } = useDisclosure()
 
@@ -136,7 +139,7 @@ export default function Carousel() {
         
         {/* This is the block you need to change, to customize the caption */}
 
-        <Container 
+        {/* <Container 
         height="600px" 
         maxW='1'
         position="relative" 
@@ -161,6 +164,40 @@ export default function Carousel() {
                 </Center>
               </Text>
           </VStack>
+        </Container> */}
+        <Container 
+        height="600px" 
+        maxW='1'
+        position="relative" 
+        >
+        <VStack 
+          position='absolute'
+          top={{base: '40%', md: '50%'}}
+          h='s'
+          w={{base: 'sm', md: 'lg', lg: '4xl'}}
+          transform={{base: 'translate(-48%, 0)', md: 'translate(-48%, 0)'}}
+          onClick={toggleColorMode}
+          >
+            <GridItem>
+              <Flex>
+                <chakra.p>
+                {card.text}
+                </chakra.p>
+              </Flex>
+            </GridItem>
+            <GridItem colSpan={1}>
+              <VStack alignItems="center" spacing="20px">
+                <chakra.h2 fontSize="3xl" fontWeight="700">
+                {card.title}
+                </chakra.h2>
+                <Button colorScheme="green" size="md">
+                  Call To Action
+                </Button>
+              </VStack>
+            </GridItem>
+
+          </VStack>
+
         </Container>
       </Box>
     ))}
@@ -168,3 +205,4 @@ export default function Carousel() {
 </GridItem>
 )
     }
+
