@@ -52,7 +52,7 @@ export default function Carousel() {
 
   // This list contains all the data for carousels
   // This can be static or loaded from a server
-  const cards = [
+  const content = [
     {
       title: 'Diseño 1',
       text:
@@ -125,7 +125,7 @@ export default function Carousel() {
   </IconButton>
   {/* Slider */}
   <Slider {...settings} ref={(slider) => setSlider(slider)} >
-    {cards.map((card, index) => (
+    {content.map((card, index) => (
       <Box
         // mt='16'
         key={index}
