@@ -50,7 +50,7 @@ export default function GridListCTA() {
         }}
         gap={4}>
         <GridItem colSpan={1}>
-          <VStack alignItems="flex-start" spacing="20px">
+          <VStack alignItems="flex-start" spacing="10px">
             <chakra.h2 fontSize="3xl" fontWeight="700">
               Medium length title
             </chakra.h2>

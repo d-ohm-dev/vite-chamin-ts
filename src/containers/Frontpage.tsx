@@ -16,7 +16,7 @@ const Frontpage = () => {
     gap={0}
     bg={useColorModeValue('linear-gradient( to bottom right, rgba(244, 244, 244, 1), rgb(137, 209, 253) )', 'linear-gradient( to bottom right, #0c4083, rgba(19, 29, 77, 0.94) )')}
     >
-      <GridItem rowSpan={1} colSpan={1} h='10%' w='100%' mb='0%' >
+      <GridItem rowSpan={1} colSpan={1} >
         <ColorModeSwitcher display='flex' position='relative' top='15%' left='93%' />
         <Navbar/>
       </GridItem>
@@ -26,7 +26,7 @@ const Frontpage = () => {
         <Carousel/>
       </GridItem>
 
-      <GridItem rowSpan={3} h='800px' zIndex='base' >
+      <GridItem rowSpan={3} colSpan={1}>
         <Cards/>
       </GridItem>
 
