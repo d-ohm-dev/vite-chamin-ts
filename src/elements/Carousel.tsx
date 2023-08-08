@@ -180,14 +180,14 @@ export default function Carousel() {
           >
             <GridItem>
               <Flex>
-                <chakra.p>
+                <chakra.p color='whiteAlpha.900' textShadow='1px 1px black'>
                 {card.text}
                 </chakra.p>
               </Flex>
             </GridItem>
             <GridItem colSpan={1}>
               <VStack alignItems="center" spacing="20px">
-                <chakra.h2 fontSize="3xl" fontWeight="700">
+                <chakra.h2 fontSize="3xl" fontWeight="700" color='whiteAlpha.900' textShadow='1px 1px black'>
                 {card.title}
                 </chakra.h2>
                 <Button colorScheme="green" size="md">

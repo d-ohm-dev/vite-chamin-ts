@@ -27,8 +27,8 @@ import {
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs'
 import { FiShoppingCart } from 'react-icons/fi'
 
-const contentData = {
- data1: {
+const contentData = [ 
+  {
     isNew: true,
     imageURL: cardImg1,
     label: 'Acana',
@@ -37,7 +37,7 @@ const contentData = {
     rating: 5,
     numReviews: 24,
   },
-  data2: {
+  {
     isNew: true,
     imageURL: cardImg2,
     label: 'Acana',
@@ -46,29 +46,30 @@ const contentData = {
     rating: 4,
     numReviews: 11,
   },  
-  data3: {
+  {
     isNew: false,
     imageURL: cardImg3,
     label: 'Acana',
     name: 'Praire Poultry',
-    price: 6100,
+    price: 600,
     rating: 4.8,
     numReviews: 65,
   },
-  data4: {
+  {
     isNew: true,
     imageURL: cardImg4,
     label: 'Acana',
     name: 'Freshwater Fish',
-    price: 6000,
+    price: 5000,
     rating: 4.5,
     numReviews: 114,
   }
-}
+]
 
 interface RatingProps {
   rating: number
   numReviews: number
+
 }
 
 function Rating({ rating, numReviews }: RatingProps) {
@@ -100,6 +101,8 @@ function Rating({ rating, numReviews }: RatingProps) {
 }
 
 function ProductAddToCart() {
+  const colorMod1 = useColorModeValue('white', 'gray.800')
+  const colorMod2 = useColorModeValue('gray.800', 'white')
   return (
     <Center as={Container} maxW="full" mt={4} p={0}>
       <Grid
@@ -107,240 +110,69 @@ function ProductAddToCart() {
         gap={{ base: 2}}
       >
         <HStack spacing={4}>
-
-          <GridItem colSpan={1}>
-            <Flex p={0} w="min" alignItems="center" justifyContent="center" >
-                <Box
-                  bg={useColorModeValue('white', 'gray.800')}
-                  maxW="min"
-                  borderWidth="1px"
-                  rounded="lg"
-                  shadow="lg"
-                  position="relative">
-                  {contentData.data1.isNew && (
-                    <Circle size="10px" position="absolute" top={2} right={2} bg="red.200" />
-                  )}
-
-                  <Image src={contentData.data1.imageURL} alt={`Picture of ${contentData.data1.name}`} roundedTop="lg" />
-
-                  <Box p="8">
-                    <Box display="flex" alignItems="baseline">
-                      {contentData.data1.isNew && (
-                        <Badge rounded="full" px="2" fontSize="sm" colorScheme="red">
-                          Nuevo
-                        </Badge>
-                      )}
-                    </Box>
-                    <Flex mt="1" justifyContent="space-between" alignContent="center">
-                      <Box
-                        fontSize="lg"
-                        fontWeight="semibold"
-                        as="h4"
-                        lineHeight="tight"
-                        isTruncated>
-                        {contentData.data1.label}
-                        <br/>
-                        {contentData.data1.name}
-                      </Box>
-                      <Tooltip
-                        label="Add to cart"
-                        bg="white"
-                        placement={'top'}
-                        color={'gray.800'}
-                        fontSize={'lg'}>
-                        <chakra.a href={'#'} display={'flex'}>
-                          <Icon as={FiShoppingCart} h={7} w={7} alignSelf={'center'} />
-                        </chakra.a>
-                      </Tooltip>
-                    </Flex>
-
-                    <Flex justifyContent="space-between" alignContent="center">
-                      <Rating rating={contentData.data1.rating} numReviews={contentData.data1.numReviews} />
-                      <Box fontSize="lg" color={useColorModeValue('gray.800', 'white')}>
-                        <Box as="span" color={'gray.600'} fontSize="md">
-                          $
+        {contentData.map((data , i)=>(
+                  <GridItem colSpan={i+1} key={i} >
+                    <Flex p={0} w="min" alignItems="center" justifyContent="center" >
+                        <Box
+                          bg={colorMod1}
+                          maxW="min"
+                          borderWidth="1px"
+                          rounded="lg"
+                          shadow="lg"
+                          position="relative">
+                          {data.isNew && (
+                            <Circle size="10px" position="absolute" top={2} right={2} bg="red.200" />
+                          )}
+        
+                          <Image src={data.imageURL} alt={`Picture of ${data.name}`} roundedTop="lg" />
+        
+                          <Box p="8">
+                            <Box display="flex" alignItems="baseline">
+                              {data.isNew && (
+                                <Badge rounded="full" px="2" fontSize="sm" colorScheme="red">
+                                  Nuevo
+                                </Badge>
+                              )}
+                            </Box>
+                            <Flex mt="1" justifyContent="space-between" alignContent="center">
+                              <Box
+                                fontSize="lg"
+                                fontWeight="semibold"
+                                as="h4"
+                                lineHeight="tight"
+                                isTruncated>
+                                {data.label}
+                                <br/>
+                                {data.name}
+                              </Box>
+                              <Tooltip
+                                label="Add to cart"
+                                bg="white"
+                                placement={'top'}
+                                color={'gray.800'}
+                                fontSize={'lg'}>
+                                <chakra.a href={'#'} display={'flex'}>
+                                  <Icon as={FiShoppingCart} h={7} w={7} alignSelf={'center'} />
+                                </chakra.a>
+                              </Tooltip>
+                            </Flex>
+        
+                            <Flex justifyContent="space-between" alignContent="center">
+                              <Rating rating={data.rating} numReviews={data.numReviews} />
+                              <Box fontSize="lg" color={colorMod2}>
+                                <Box as="span" color={'gray.600'} fontSize="md">
+                                  $
+                                </Box>
+                                {data.price.toFixed(2)}
+                              </Box>
+                            </Flex>
+                          </Box>
                         </Box>
-                        {contentData.data1.price.toFixed(2)}
-                      </Box>
-                    </Flex>
-                  </Box>
-                </Box>
-              </Flex>
-            </GridItem>
-
-            <GridItem colSpan={2} >
-              <Flex p={0} w="min" alignItems="center" justifyContent="center">
-                <Box
-                  bg={useColorModeValue('white', 'gray.800')}
-                  maxW="min"
-                  borderWidth="1px"
-                  rounded="lg"
-                  shadow="lg"
-                  position="relative">
-                  {contentData.data2.isNew && (
-                    <Circle size="10px" position="absolute" top={2} right={2} bg="red.200" />
-                  )}
-
-                  <Image src={contentData.data2.imageURL} alt={`Picture of ${contentData.data2.name}`} roundedTop="lg" />
-
-                  <Box p="8">
-                    <Box display="flex" alignItems="baseline">
-                      {contentData.data2.isNew && (
-                        <Badge rounded="full" px="2" fontSize="xs" colorScheme="red">
-                          Nuevo
-                        </Badge>
-                      )}
-                    </Box>
-                    <Flex mt="1" justifyContent="space-between" alignContent="center">
-                      <Box
-                        fontSize="lg"
-                        fontWeight="semibold"
-                        as="h4"
-                        lineHeight="tight"
-                        isTruncated>
-                        {contentData.data2.label} <br/> {contentData.data2.name}
-                      </Box>
-                      <Tooltip
-                        label="Add to cart"
-                        bg="white"
-                        placement={'top'}
-                        color={'gray.800'}
-                        fontSize={'lg'}>
-                        <chakra.a href={'#'} display={'flex'}>
-                          <Icon as={FiShoppingCart} h={7} w={7} alignSelf={'center'} />
-                        </chakra.a>
-                      </Tooltip>
-                    </Flex>
-
-                    <Flex justifyContent="space-between" alignContent="center">
-                      <Rating rating={contentData.data2.rating} numReviews={contentData.data2.numReviews} />
-                      <Box fontSize="lg" color={useColorModeValue('gray.800', 'white')}>
-                        <Box as="span" color={'gray.600'} fontSize="md">
-                          $
-                        </Box>
-                        {contentData.data2.price.toFixed(2)}
-                      </Box>
-                    </Flex>
-                  </Box>
-                </Box>
-              </Flex>
-            </GridItem>
-
-            <GridItem colSpan={3} >
-              <Flex p={0} w="min" alignItems="center" justifyContent="center">
-                <Box
-                  bg={useColorModeValue('white', 'gray.800')}
-                  maxW="min"
-                  borderWidth="1px"
-                  rounded="lg"
-                  shadow="lg"
-                  position="relative">
-                  {contentData.data3.isNew && (
-                    <Circle size="10px" position="absolute" top={2} right={2} bg="red.200" />
-                  )}
-
-                  <Image src={contentData.data3.imageURL} alt={`Picture of ${contentData.data3.name}`} roundedTop="lg" />
-
-                  <Box p="8">
-                    <Box display="flex" alignItems="baseline">
-                      {contentData.data3.isNew && (
-                        <Badge rounded="full" px="2" fontSize="xs" colorScheme="red">
-                          Nuevo
-                        </Badge>
-                      )}
-                    </Box>
-                    <Flex mt="1" justifyContent="space-between" alignContent="center">
-                      <Box
-                        fontSize="lg"
-                        fontWeight="semibold"
-                        as="h4"
-                        lineHeight="tight"
-                        isTruncated>
-                        {contentData.data3.label} <br/> {contentData.data3.name}
-                      </Box>
-                      <Tooltip
-                        label="Add to cart"
-                        bg="white"
-                        placement={'top'}
-                        color={'gray.800'}
-                        fontSize={'lg'}>
-                        <chakra.a href={'#'} display={'flex'}>
-                          <Icon as={FiShoppingCart} h={7} w={7} alignSelf={'center'} />
-                        </chakra.a>
-                      </Tooltip>
-                    </Flex>
-
-                    <Flex justifyContent="space-between" alignContent="center">
-                      <Rating rating={contentData.data3.rating} numReviews={contentData.data3.numReviews} />
-                      <Box fontSize="lg" color={useColorModeValue('gray.800', 'white')}>
-                        <Box as="span" color={'gray.600'} fontSize="md">
-                          $
-                        </Box>
-                        {contentData.data3.price.toFixed(2)}
-                      </Box>
-                    </Flex>
-                  </Box>
-                </Box>
-              </Flex>
-            </GridItem>
-
-            <GridItem colSpan={4} >
-              <Flex p={0} w="min" alignItems="center" justifyContent="center">
-                <Box
-                  bg={useColorModeValue('white', 'gray.800')}
-                  maxW="min"
-                  borderWidth="1px"
-                  rounded="lg"
-                  shadow="lg"
-                  position="relative">
-                  {contentData.data4.isNew && (
-                    <Circle size="10px" position="absolute" top={2} right={2} bg="red.200" />
-                  )}
-
-                  <Image src={contentData.data4.imageURL} alt={`Picture of ${contentData.data4.name}`} roundedTop="lg" />
-
-                  <Box p="8">
-                    <Box display="flex" alignItems="baseline">
-                      {contentData.data4.isNew && (
-                        <Badge rounded="full" px="2" fontSize="xs" colorScheme="red">
-                          Nuevo
-                        </Badge>
-                      )}
-                    </Box>
-                    <Flex mt="1" justifyContent="space-between" alignContent="center">
-                      <Box
-                        fontSize="lg"
-                        fontWeight="semibold"
-                        as="h4"
-                        lineHeight="tight"
-                        isTruncated>
-                        {contentData.data4.label} <br/> {contentData.data4.name}
-                      </Box>
-                      <Tooltip
-                        label="Add to cart"
-                        bg="white"
-                        placement={'top'}
-                        color={'gray.800'}
-                        fontSize={'lg'}>
-                        <chakra.a href={'#'} display={'flex'}>
-                          <Icon as={FiShoppingCart} h={7} w={7} alignSelf={'center'} />
-                        </chakra.a>
-                      </Tooltip>
-                    </Flex>
-
-                    <Flex justifyContent="space-between" alignContent="center">
-                      <Rating rating={contentData.data4.rating} numReviews={contentData.data4.numReviews} />
-                      <Box fontSize="lg" color={useColorModeValue('gray.800', 'white')}>
-                        <Box as="span" color={'gray.600'} fontSize="md">
-                          $
-                        </Box>
-                        {contentData.data4.price.toFixed(2)}
-                      </Box>
-                    </Flex>
-                  </Box>
-                </Box>
-              </Flex>
-            </GridItem>
+                      </Flex>
+                    </GridItem>
+        )
+      )
+        }
         </HStack>
       </Grid>
     </Center>  
