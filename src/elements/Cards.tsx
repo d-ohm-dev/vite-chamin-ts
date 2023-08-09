@@ -29,7 +29,7 @@ import { FiShoppingCart } from 'react-icons/fi'
 
 const contentData = [ 
   {
-    isNew: true,
+    isNew: false,
     imageURL: cardImg1,
     label: 'Acana',
     name: 'Wild Coast',
@@ -38,7 +38,7 @@ const contentData = [
     numReviews: 24,
   },
   {
-    isNew: true,
+    isNew: false,
     imageURL: cardImg2,
     label: 'Acana',
     name: `Puppy & Junior` ,
@@ -47,11 +47,11 @@ const contentData = [
     numReviews: 11,
   },  
   {
-    isNew: false,
+    isNew: true,
     imageURL: cardImg3,
     label: 'Acana',
     name: 'Praire Poultry',
-    price: 600,
+    price: 60000,
     rating: 4.8,
     numReviews: 65,
   },
@@ -103,23 +103,26 @@ function Rating({ rating, numReviews }: RatingProps) {
 function ProductAddToCart() {
   const colorMod1 = useColorModeValue('white', 'gray.800')
   const colorMod2 = useColorModeValue('gray.800', 'white')
+  console.log(contentData[2].price.toPrecision(4))
   return (
-    <Center as={Container} maxW="full" mt={4} p={0}>
+    <Center as={Container} maxW="full" mt={4} >
       <Grid
         templateColumns={{base: 'repeat(auto-fill, 1fr)'}}
         gap={{ base: 2}}
       >
         <HStack spacing={4}>
         {contentData.map((data , i)=>(
-                  <GridItem colSpan={i+1} key={i} >
-                    <Flex p={0} w="min" alignItems="center" justifyContent="center" >
+                  <GridItem colSpan={i+1} key={i} minH={{base: 'full'}}>
+                    <Flex w="min" alignItems="center" justifyContent="center" >
                         <Box
                           bg={colorMod1}
                           maxW="min"
                           borderWidth="1px"
                           rounded="lg"
                           shadow="lg"
-                          position="relative">
+                          position="relative"
+                          paddingBottom= {`${data.price.toString().length < 4 ? data.price *= 10 : data.price }` && `${data.isNew? '0' : '5'}`}
+                          >
                           {data.isNew && (
                             <Circle size="10px" position="absolute" top={2} right={2} bg="red.200" />
                           )}

@@ -61,11 +61,12 @@ export default function GridListCTA() {
         </GridItem>
         <GridItem>
           <Flex>
-            <chakra.p>
+            <chakra.p textAlign={'left'} >
               Provide your customers a story they would enjoy keeping in mind the
               objectives of your website. Pay special attention to the tone of voice.
             </chakra.p>
           </Flex>
+
         </GridItem>
       </Grid>
       <Divider mt={12} mb={12} />
