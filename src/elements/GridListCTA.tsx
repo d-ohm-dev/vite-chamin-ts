@@ -42,13 +42,7 @@ import {
 export default function GridListCTA() {
   return (
     <Box as={Container} maxW="7xl" mt={14} p={4}>
-      <Grid
-        templateColumns={{
-          base: 'repeat(1, 1fr)',
-          sm: 'repeat(2, 1fr)',
-          md: 'repeat(2, 1fr)',
-        }}
-        gap={4}>
+      <Grid gap={4}>
         <GridItem colSpan={1}>
           <VStack alignItems="flex-start" spacing="10px">
             <chakra.h2 fontSize="3xl" fontWeight="700">
