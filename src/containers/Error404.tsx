@@ -25,7 +25,6 @@ export default function NotFound(){
         La página que buscabas para que no existe
       </Text>
       <Link to={'/'}>
-
         <Button
           colorScheme="teal"
           bgGradient="linear(to-r, teal.400, teal.500, teal.600)"
