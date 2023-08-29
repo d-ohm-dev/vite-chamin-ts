@@ -1,9 +1,9 @@
 'use client'
 // import React from 'react'
-import dogsplaying from '../assets/fotos/dogplaying1.jpeg'
-import cat3 from '../assets/fotos/cat3F.png'
-import dogtoys2 from '../assets/fotos/dogtoys2F.jpeg'
-import doghappy2 from '../assets/fotos/dogshappy2F.jpeg'
+import dogsplaying from '../../assets/fotos/dogplaying1.jpeg'
+import cat3 from '../../assets/fotos/cat3F.png'
+import dogtoys2 from '../../assets/fotos/dogtoys2F.jpeg'
+import doghappy2 from '../../assets/fotos/dogshappy2F.jpeg'
 
 import {
   Box,

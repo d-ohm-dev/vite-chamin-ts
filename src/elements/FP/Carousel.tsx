@@ -1,7 +1,7 @@
 import React from 'react';
-import sliderDog from '../assets/fotos/sliderDog.png';
-import sliderCat from '../assets/fotos/sliderCat.png';
-import sliderBunny from '../assets/fotos/sliderBunny.jpeg'
+import sliderDog from '../../assets/fotos/sliderDog.png';
+import sliderCat from '../../assets/fotos/sliderCat.png';
+import sliderBunny from '../../assets/fotos/sliderBunny.jpeg'
 import {
   Box,
   IconButton,

@@ -1,9 +1,9 @@
 'use client'
 
-import logo from '../assets/fotos/logo.png';
-import invlogo from '../assets/fotos/invlogo.png';
-import bgimgl from '../assets/fotos/FondoWebRecSky.jpg'
-import bgimgd from '../assets/fotos/FondoWebRecNight.png'
+import logo from '../../assets/fotos/logo.png';
+import invlogo from '../../assets/fotos/invlogo.png';
+import bgimgl from '../../assets/fotos/FondoWebRecSky.jpg'
+import bgimgd from '../../assets/fotos/FondoWebRecNight.png'
 
 import {
   Box,

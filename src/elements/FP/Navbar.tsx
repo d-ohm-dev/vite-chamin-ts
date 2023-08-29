@@ -1,7 +1,7 @@
 // import React from 'react';
-import logo from '../assets/fotos/logo.png';
+import logo from '../../assets/fotos/logo.png';
 // import logos from './assets/fotos/logos.jpg';
-import invlogo from '../assets/fotos/invlogo.png';
+import invlogo from '../../assets/fotos/invlogo.png';
 
 import {
   Box,
