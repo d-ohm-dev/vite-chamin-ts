@@ -26,6 +26,7 @@ import {
   Img,
 } from '@chakra-ui/react'
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 // import { FiShoppingCart } from 'react-icons/fi'
 // import { StarIcon } from '@chakra-ui/icons'
 
@@ -204,6 +205,7 @@ function ProductAddToCart() {
             contentData.map((data, i) => (
             
             <GridItem colSpan={i+1} key={i} minH={{base: 'full'}}>
+              <Link to={'/product-view'}>
               <Img src={data.imageURL} alt={'Picture of' + data.name} key={i} />
               <Box p='4' bg={colorMod1}>
                 <Box display='flex' alignItems='baseline' >
@@ -243,6 +245,7 @@ function ProductAddToCart() {
                 </Box>
 
               </Box>
+              </Link>
             </GridItem>
             
             ))
