@@ -1,5 +1,5 @@
 import { Box, Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, Radio, RadioGroup, SlideDirection, Stack, useDisclosure } from "@chakra-ui/react"
-import React, { useState } from "react"
+import { useState } from "react"
 
 
 function PlacementExample() {
