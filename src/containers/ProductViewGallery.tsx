@@ -4,11 +4,11 @@ import Navbar from "../elements/CommonElements/Navbar";
 import { ColorModeSwitcher } from "../elements/FrontPage/ColorModeSwitcher";
 // import FlexView from "../elements/ProductView/ProductDetails";
 import Footer from "../elements/CommonElements/Footer";
-import ProductDetails from "../elements/ProductView/ProductDetails";
+import Gallery from "../elements/ProductView/ProductGallery";
 // import PlacementExample from "../elements/PV/rollNav";
 
 
-const ProductView = () => (
+const ProductViewGallery = () => (
   // textAlign="center" fontSize="xl"
   <Box textAlign="center" fontSize="xl" >
     <Grid
@@ -24,7 +24,7 @@ const ProductView = () => (
       <Navbar/>
     </GridItem>
     <GridItem rowSpan={2} colSpan={1} >
-      <ProductDetails/>
+      <Gallery/>
     </GridItem>
     <GridItem rowSpan={3} colSpan={1}>
       <Footer/>
@@ -33,4 +33,4 @@ const ProductView = () => (
 </Box>
 )
 
-export default ProductView
+export default ProductViewGallery

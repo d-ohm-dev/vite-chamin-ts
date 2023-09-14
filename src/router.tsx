@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import NotFound from "./containers/Error404";
 import ProductView from "./containers/ProductView";
+import ProductViewGallery from "./containers/ProductViewGallery";
 
 const router = createBrowserRouter([
   {
@@ -10,7 +11,11 @@ const router = createBrowserRouter([
     element: <App/>
   },
   {
-    path: '/product-view',
+    path: 'product-view',
+    element: <ProductViewGallery/>,
+  },
+  {
+    path: 'product-view/detail',
     element: <ProductView/>
   },
   {

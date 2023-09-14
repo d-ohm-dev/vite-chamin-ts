@@ -6,7 +6,7 @@ import {
   // Card, 
   // CardBody, 
   // CardFooter, 
-  Center, 
+  // Center, 
   Flex, 
   Heading, 
   Image, 
@@ -30,7 +30,7 @@ const detailProduct = [
 ]
 
 
-function FlexView () {
+function ProductDetails () {
 
   const colorMode1 = useColorModeValue('gray.900', 'gray.400')
   const colorMode2 = useColorModeValue('gray.200', 'gray.600')
@@ -41,11 +41,11 @@ function FlexView () {
   return (
 <Flex color='white'>
 
-  <Center w='100px' bg='green.500' width={'sm'} >
+  {/* <Center w='100px' bg='green.500' width={'sm'} >
 
     <Text  >En Construcción</Text>
 
-  </Center> 
+  </Center>  */}
 
   {/* <Square bg='blue.500' size='150px'>
 
@@ -55,11 +55,10 @@ function FlexView () {
 
   <Container maxW={'max'}>
       <SimpleGrid
-        columns={1}
+        columns={2}
         spacing={{ base: 8, md: 10 }}
         // py={{ base: 18, md: 24 }}
         >
-        <VStack>
           <Image
             rounded={'md'}
             alt={'product image'}
@@ -207,11 +206,10 @@ function FlexView () {
             <Text>2-3 business days delivery</Text>
           </Stack>
         </Stack>
-        </VStack>
       </SimpleGrid>
     </Container>  
 </Flex>
   )
 }
 
-export default FlexView
+export default ProductDetails
