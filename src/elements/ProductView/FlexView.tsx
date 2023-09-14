@@ -43,7 +43,7 @@ function FlexView () {
 
   <Center w='100px' bg='green.500' width={'sm'} >
 
-    <Text mt={0} >Box 1</Text>
+    <Text  >En Construcción</Text>
 
   </Center> 
 
