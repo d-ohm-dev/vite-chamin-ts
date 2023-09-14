@@ -1,10 +1,10 @@
 import { Box, Grid, GridItem, useColorModeValue } from "@chakra-ui/react";
-import { ColorModeSwitcher } from "../elements/FP/ColorModeSwitcher";
-import Navbar from "../elements/FP/Navbar";
-import Carousel from "../elements/FP/Carousel";
-import Cards from "../elements/FP/Cards";
-import Footer from "../elements/FP/Footer";
-import GridListCTA from "../elements/FP/GridListCTA";
+import { ColorModeSwitcher } from "../elements/FrontPage/ColorModeSwitcher";
+import Navbar from "../elements/CommonElements/Navbar";
+import Carousel from "../elements/FrontPage/Carousel";
+import Cards from "../elements/FrontPage/Cards";
+import Footer from "../elements/CommonElements/Footer";
+import GridListCTA from "../elements/FrontPage/GridListCTA";
 
 const Frontpage = () => {
   return (
