@@ -64,7 +64,7 @@ const imagesPV = [
   }
 ]
 
-export default function GridListCTA() {
+export default function ChoosingPet() {
 
   const coloMod1 = useColorModeValue('white', 'gray.800')
   return (
