@@ -105,7 +105,7 @@ function Rating({ rating, numReviews }: RatingProps) {
 
 function ProductAddToCart() {
   const colorMod1 = useColorModeValue('gray.100', 'gray.800');
-  // const colorMod2 = useColorModeValue('gray.800', 'white');
+  const colorMod2 = useColorModeValue('gray.800', 'white');
 
   // return (
   //   <Center as={Container} maxW="full" mt={4} >
@@ -229,6 +229,7 @@ function ProductAddToCart() {
                   as='h4'
                   lineHeight='tight'
                   noOfLines={2}
+                  color={colorMod2}
                 >
                   {data.label} <br/> {data.name}
                 </Box>
