@@ -16,11 +16,8 @@ import {
   Grid,
   Container,
   GridItem,
-  // VStack,
-  HStack,
   Center,
   Img,
-  // VStack,
   Stack,
   // Text,
 } from '@chakra-ui/react'
@@ -32,6 +29,42 @@ import FilterGallery from './FilterGallery'
 
 const contentData = [ 
   {
+    isNew: true,
+    imageURL: cardImg1,
+    label: 'Acana',
+    name: 'Wild Coast',
+    price: 5000,
+    rating: 5,
+    numReviews: 24,
+  },
+  {
+    isNew: true,
+    imageURL: cardImg2,
+    label: 'Acana',
+    name: `Puppy & Junior` ,
+    price: 4700,
+    rating: 4,
+    numReviews: 11,
+  },  
+  {
+    isNew: false,
+    imageURL: cardImg3,
+    label: 'Acana',
+    name: 'Praire Poultry',
+    price: 6000,
+    rating: 4.8,
+    numReviews: 65,
+  },
+  {
+    isNew: false,
+    imageURL: cardImg4,
+    label: 'Acana',
+    name: 'Freshwater Fish',
+    price: 5000,
+    rating: 4.5,
+    numReviews: 114,
+  },
+    {
     isNew: true,
     imageURL: cardImg1,
     label: 'Acana',
@@ -116,16 +149,17 @@ function Gallery() {
       <Text>En Construcción</Text>
 
     </Center>  */}
-    <Center as={Container} maxW="full" mt={4} >
-      <Grid
-        templateColumns={{base: 'repeat(auto-fill, 1fr)'}}
-        gap={{ base: 2}}
-      >
-        <HStack spacing={4}>
+    <Center as={Container} maxW="full" m={2}>
+    <Grid
+              templateColumns={' 4fr repeat(3, 4fr)'}
+              // templateRows={'repeat(2, 1fr, auto)'}
+              gap={2}
+              p={'0'}
+            >
           {
-            contentData.map((data, i) => (
-            
-            <GridItem colSpan={i+1} key={i} minH={{base: 'full'}}>
+            contentData.map((data, i) => (            
+            <GridItem colSpan={'auto'} key={i} minH={{base: 'full'}}  >
+
               <Link to={'/product-view/detail'}>
                 <Img src={data.imageURL} alt={'Picture of' + data.name} key={i} />
                 <Box p='4' bg={colorMod1}>
@@ -170,13 +204,11 @@ function Gallery() {
                 </Box>
                   </Box>
               </Link>
-            </GridItem>
-            
+            </GridItem> 
             ))
             
           }
-        </HStack> 
-      </Grid> 
+      </Grid>
     </Center>
 
   </Stack>
