@@ -4,7 +4,7 @@ import Navbar from "../elements/CommonElements/Navbar";
 import { ColorModeSwitcher } from "../elements/FrontPage/ColorModeSwitcher";
 // import FlexView from "../elements/ProductView/ProductDetails";
 import Footer from "../elements/CommonElements/Footer";
-import Gallery from "../elements/ProductView/ProductGallery";
+import Gallery from "../elements/GalleryView/ProductGallery";
 // import PlacementExample from "../elements/PV/rollNav";
 
 
