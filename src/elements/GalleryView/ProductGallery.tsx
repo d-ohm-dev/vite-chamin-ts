@@ -20,17 +20,13 @@ import {
   HStack,
   Center,
   Img,
-  Flex,
+  // VStack,
+  Stack,
   // Text,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
 } from '@chakra-ui/react'
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
-import { AddIcon, MinusIcon } from '@chakra-ui/icons'
+import FilterGallery from './FilterGallery'
 // import { FiShoppingCart } from 'react-icons/fi'
 // import { StarIcon } from '@chakra-ui/icons'
 
@@ -112,50 +108,9 @@ function Gallery() {
   const colorMod2 = useColorModeValue('gray.800', 'white');
 
   return (
-  <Flex color={colorMod2}>
-    <Accordion allowMultiple>
-      <AccordionItem>
-        <h2>
-          <AccordionButton>
-            <Box as="span" flex='1' textAlign='left'>
-              Section 1 title
-            </Box>
-            <AccordionIcon />
-          </AccordionButton>
-        </h2>
-        <AccordionPanel pb={4}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat.
-        </AccordionPanel>
-      </AccordionItem>
+  <Stack color={colorMod2} direction={['column', 'row']}>
+    <FilterGallery/>
 
-      <AccordionItem>
-        {({ isExpanded }) => (
-          <>
-            <h2>
-              <AccordionButton>
-                <Box as="span" flex='1' textAlign='left'>
-                  Section 2 title
-                </Box>
-                {isExpanded ? (
-                  <MinusIcon fontSize='12px' />
-                ) : (
-                  <AddIcon fontSize='12px' />
-                )}
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-              minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat.
-            </AccordionPanel>
-          </>
-        )}
-      </AccordionItem>
-    </Accordion>
     {/* <Center w='100px' bg='green.500' width={'sm'} >
 
       <Text>En Construcción</Text>
@@ -224,7 +179,7 @@ function Gallery() {
       </Grid> 
     </Center>
 
-  </Flex>
+  </Stack>
   ) 
     
 }
