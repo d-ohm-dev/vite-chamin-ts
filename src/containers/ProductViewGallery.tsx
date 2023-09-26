@@ -13,7 +13,7 @@ const ProductViewGallery = () => (
   <Box textAlign="center" fontSize="xl" >
     <Grid
     h='8xl'
-    templateRows='repeat(3, 1fr, auto)'
+    templateRows='repeat(3)'
     templateColumns='repeat(1, 100%)'
     gap={0}
     bg={useColorModeValue('linear-gradient( to bottom right, rgba(244, 244, 244, 1), rgb(137, 209, 253) )', 'linear-gradient( to bottom right, #0c4083, rgba(19, 29, 77, 0.94) )')}
@@ -23,10 +23,10 @@ const ProductViewGallery = () => (
         {/* <PlacementExample/> */}
         <Navbar/>
       </GridItem>
-      <GridItem rowSpan={2} colSpan={1} >
+      <GridItem rowSpan={2} colSpan={1}  >
         <Gallery/>
       </GridItem>
-      <GridItem rowSpan={3} colSpan={1} mt={'96'}>
+      <GridItem rowSpan={3} colSpan={1}>
         <Footer/>
       </GridItem>
     </Grid>
