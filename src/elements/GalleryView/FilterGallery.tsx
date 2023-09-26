@@ -2,10 +2,6 @@ import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import { 
   Accordion, 
   AccordionButton, 
-<<<<<<< HEAD
-=======
-  // AccordionIcon, 
->>>>>>> af8adc3... mojoras ui filtro
   AccordionItem,
   AccordionPanel,
   Box
