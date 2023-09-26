@@ -14,6 +14,8 @@ export default function CheckFilter() {
   const allChecked = checkedItems.every(Boolean)
   const isIndeterminate = checkedItems.some(Boolean) && !allChecked
   const colorMode1 = useColorModeValue( 'SlateGray', 'WhiteSmoke')
+  // const colorMode1 = useColorModeValue('gray.800', 'white')
+  // const colorMode1 = useColorModeValue( 'SlateGray', 'WhiteSmoke')
 
 
   return (
@@ -40,7 +42,6 @@ export default function CheckFilter() {
           isChecked={checkedItems[1]}
           onChange={(e) => setCheckedItems([checkedItems[0], e.target.checked])}
           border={colorMode1}
-          colorScheme="red"
         >
           Child Checkbox 2
         </Checkbox>
