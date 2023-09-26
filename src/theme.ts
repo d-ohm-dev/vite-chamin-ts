@@ -1,7 +1,5 @@
 import { extendTheme } from '@chakra-ui/react'
 // import type { StyleFunctionProps } from '@chakra-ui/styled-system'
-import { checkboxTheme } from './elements/GalleryView/checkboxTheme'
-
 
 
 // 2. Add your color mode config
@@ -66,7 +64,6 @@ const theme = extendTheme({
         colorScheme: 'green', // default is gray
       },
     },
-    Checkbox: checkboxTheme
   },
 })
 
