@@ -8,7 +8,8 @@ import Gallery from "../elements/GalleryView/ProductGallery";
 // import PlacementExample from "../elements/PV/rollNav";
 
 
-const ProductViewGallery = () => (
+const ProductViewGallery = () =>{ 
+  return (
   // textAlign="center" fontSize="xl"
   <Box textAlign="center" fontSize="xl" >
     <Grid
@@ -19,9 +20,9 @@ const ProductViewGallery = () => (
     bg={useColorModeValue('linear-gradient( to bottom right, rgba(244, 244, 244, 1), rgb(137, 209, 253) )', 'linear-gradient( to bottom right, #0c4083, rgba(19, 29, 77, 0.94) )')}
     >
       <GridItem rowSpan={1} colSpan={1}>
-        <ColorModeSwitcher display='flex' position='relative' top='15%' left='93%' />
+        <ColorModeSwitcher display='flex' position='relative' top='15%' left='93%' autoFocus={true} />
         {/* <PlacementExample/> */}
-        <Navbar/>
+        <Navbar />
       </GridItem>
       <GridItem rowSpan={2} colSpan={1}  >
         <Gallery/>
@@ -31,6 +32,6 @@ const ProductViewGallery = () => (
       </GridItem>
     </Grid>
   </Box>
-)
+)}
 
 export default ProductViewGallery
