@@ -5,6 +5,7 @@ import { ColorModeSwitcher } from "../elements/FrontPage/ColorModeSwitcher";
 // import FlexView from "../elements/ProductView/ProductDetails";
 import Footer from "../elements/CommonElements/Footer";
 import ProductDetails from "../elements/ProductView/ProductDetails";
+import SimpleThreeColumns from "../elements/GalleryView/GalleryFeatures";
 // import PlacementExample from "../elements/PV/rollNav";
 
 
@@ -27,6 +28,9 @@ const ProductView = () => (
         <ProductDetails/>
       </GridItem>
       <GridItem rowSpan={3} colSpan={1}>
+        <SimpleThreeColumns/>
+      </GridItem>
+      <GridItem rowSpan={4} colSpan={1}>
         <Footer/>
       </GridItem>
     </Grid>
