@@ -8,8 +8,6 @@ import {
 } from "@chakra-ui/react";
 import CheckFilter from "./CheckFilter";
 
-
-
 export default function FilterGallery () {
   return (
     <Accordion allowMultiple boxSize={[
@@ -25,7 +23,7 @@ export default function FilterGallery () {
           <h2>
             <AccordionButton>
               <Box as="span" flex='1' textAlign='left'  >
-                Section 1 title
+                Mascota
               </Box>
               {isExpanded ? (
                 <MinusIcon fontSize='12px' />
@@ -48,7 +46,28 @@ export default function FilterGallery () {
           <h2>
             <AccordionButton>
               <Box as="span" flex='1' textAlign='left'>
-                Section 2 title
+                Etapa de vida
+              </Box>
+              {isExpanded ? (
+                <MinusIcon fontSize='12px' />
+              ) : (
+                <AddIcon fontSize='12px' />
+              )}
+            </AccordionButton>
+          </h2>
+          <AccordionPanel pb={4}>
+            <CheckFilter/>
+          </AccordionPanel>
+        </>
+      )}
+    </AccordionItem>
+    <AccordionItem>
+      {({ isExpanded }) => (
+        <>
+          <h2>
+            <AccordionButton>
+              <Box as="span" flex='1' textAlign='left'>
+                Talla
               </Box>
               {isExpanded ? (
                 <MinusIcon fontSize='12px' />

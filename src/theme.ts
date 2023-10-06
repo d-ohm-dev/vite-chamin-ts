@@ -64,6 +64,14 @@ const theme = extendTheme({
       },
     },
   },
+  textStyles: {
+    p: {
+      // you can also use responsive styles
+      FontFace: 'MagmaWave'
+      
+
+    },
+  }
 })
 
 export default theme

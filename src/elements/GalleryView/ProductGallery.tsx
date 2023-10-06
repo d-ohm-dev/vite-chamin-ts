@@ -23,7 +23,7 @@ import {
 } from '@chakra-ui/react'
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
-import FilterGallery from './FilterGallery'
+import FilterGallery from './newFilterGallery'
 // import { FiShoppingCart } from 'react-icons/fi'
 // import { StarIcon } from '@chakra-ui/icons'
 

@@ -1,11 +1,8 @@
-
-
 import React from "react"
 import { Checkbox, 
   Stack, 
   useColorModeValue 
 } from "@chakra-ui/react"
-
 
 
 export default function CheckFilter() {

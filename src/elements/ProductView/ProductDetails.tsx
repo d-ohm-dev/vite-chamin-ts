@@ -57,6 +57,7 @@ function ProductDetails () {
       <SimpleGrid
         columns={2}
         spacing={{ base: 8, md: 10 }}
+        
         // py={{ base: 18, md: 24 }}
         >
           <Image
@@ -68,7 +69,9 @@ function ProductDetails () {
             // w={'100%'}
             h={{ base: '100%', sm: '600px', lg: 'max' }}
           />
-        <Stack spacing={{ base: 6, md: 10 }}>
+        <Stack spacing={{ base: 6, md: 10 }}
+        fontFamily={'sans-serif'}
+        >
           <Box as={'header'}>
             <Heading
               lineHeight={1.1}
