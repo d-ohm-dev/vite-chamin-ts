@@ -15,10 +15,7 @@ import {
 
 
 export function CheckFilter({label}: List) {
-  // const [checkedItems, setCheckedItems] = useState([false, false])
 
-  // const allChecked = checkedItems.every(Boolean)
-  // const isIndeterminate = checkedItems.some(Boolean) && !allChecked
   const colorMode1 = useColorModeValue( 'SlateGray', 'WhiteSmoke')
 
   return (
