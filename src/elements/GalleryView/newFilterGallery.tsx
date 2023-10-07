@@ -17,6 +17,7 @@ import {
  * 
  * @param param0 
  * @returns label type List
+ * El Checbox retorna solo el label
  */
 export function CheckFilter({label}: List) {
 
@@ -36,7 +37,10 @@ export function CheckFilter({label}: List) {
   )
 }
 
-
+/**
+ * Recorro el LIST_ITEM y devuelvo CheckFilter con parametro Key={child.label}, luego el children desestructurado {...child}
+ * @returns LIST_ITEM
+ */
 export default function FilterGallery () {
 
 
