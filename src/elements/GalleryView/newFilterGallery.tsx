@@ -15,7 +15,7 @@ import {
 
 /**
  * 
- * @param param0 
+ * @param param0 label: List
  * @returns label type List
  * El Checbox retorna solo el label
  */
