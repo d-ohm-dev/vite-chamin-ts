@@ -12,23 +12,6 @@ import {
   Stack, 
   useColorModeValue 
 } from "@chakra-ui/react"
-// import { useState } from "react";
-// import CheckFilter from "./CheckFilter";
-
-//  function listCicle() {
-  // function listCicle() {
-  // LIST_ITEMS.map((navList)=>{
-
-  //   // if (data.label === label) {
-      
-  //   // }
-  //     // return  console.log(typeof {child})
-  //     return console.log(child)
-
-
-  // })
-  // }
-
 
 
 export function CheckFilter({label}: List) {
@@ -39,49 +22,22 @@ export function CheckFilter({label}: List) {
   const colorMode1 = useColorModeValue( 'SlateGray', 'WhiteSmoke')
 
   return (
-      
-        // LIST_ITEMS.map(({label}: List, i)=>{
-          // return (
-      //       {/* <Checkbox
-      //   isChecked={allChecked}
-      //   isIndeterminate={isIndeterminate}
-      //   onChange={(e) => setCheckedItems([e.target.checked, e.target.checked])}
-      //   border={colorMode1}
-      //   colorScheme="red"
-      // >
-      // {label}
-      // </Checkbox> */}
-      
-        
-    // LIST_ITEMS.map((item, i)=>(
+
     <Stack pl={6} mt={1} spacing={1} >
        <Checkbox
-          // isChecked={checkedItems[0]}
-          // onChange={(e) => setCheckedItems([e.target.checked, checkedItems[i]])}
           border={colorMode1}
           colorScheme="red"
-          // key={i}
         >
           {label}
         </Checkbox>
 
-        </Stack>
-  //  ))  
-      
-          // )
-        
-
-    
+        </Stack>    
   )
 }
 
 
 export default function FilterGallery () {
 
-  // const [checkedItems, setCheckedItems] = useState([false, false])
-
-  // const allChecked = checkedItems.every(Boolean)
-  // const isIndeterminate = checkedItems.some(Boolean) && !allChecked
 
   return (
     <Accordion allowMultiple boxSize={[
@@ -115,61 +71,7 @@ export default function FilterGallery () {
                     ))
 
                     }
-              {/* <AccordionPanel pb={4}>
-                  { data.label == 'Mascotas' ?
-                  <Stack pl={6} mt={1} spacing={1} >                 
-                  <Checkbox
-                    isChecked={checkedItems[0]}
-                    onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}
-                    border={colorMode1}
-                    colorScheme="red"
-                    key={i}
-                  > 
-                  {data.children?.map(x => x.label[i])}
-                </Checkbox>
-                <Checkbox
-                isChecked={checkedItems[0]}
-                onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}
-                border={colorMode1}
-                colorScheme="red"
-                key={i}
-              > 
-              {data.children?.map(x => x.label[i])}
-            </Checkbox>
-            </Stack>
-                : 'Error1'
-                }
-                {
-                  data.label == "Etapa de vida" ? 
-                  <Checkbox
-                  isChecked={checkedItems[1]}
-                  onChange={(e) => setCheckedItems([checkedItems[0], e.target.checked])}
-                  border={colorMode1}
-                  colorScheme="red"
-                  key={data.label}
-                >
-                  {data.children?.map((x) => x.label)}
-                </Checkbox>
-                :
-                'Error2'
-                }
-                {
-                  data.label == "Talla" ? 
-                  <Checkbox
-                  isChecked={checkedItems[1]}
-                  onChange={(e) => setCheckedItems([checkedItems[0], e.target.checked])}
-                  border={colorMode1}
-                  colorScheme="red"
-                  key={i}
-                >
-                  {data.children?.map((x,l) => x.label[l])}
-                </Checkbox>
-                :
-                'Error2'
-                }
-                
 
-              </AccordionPanel> */}
             </>
           )
           }
@@ -177,69 +79,7 @@ export default function FilterGallery () {
         </AccordionItem>
       ))
     }
-    {/* <AccordionItem >
-      {({ isExpanded }) => (
-        <>
-          <h2>
-            <AccordionButton >
-              <Box as="span" flex='1' textAlign='left'  >
-                Mascota
-              </Box>
-              {isExpanded ? (
-                <MinusIcon fontSize='12px' />
-              ) : (
-                <AddIcon fontSize='12px' />
-              )}
-            </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4}>
-              <CheckFilter/>
-          </AccordionPanel>
-        </>
-      )}
-    </AccordionItem>
-    <AccordionItem>
-      {({ isExpanded }) => (
-        <>
-          <h2>
-            <AccordionButton>
-              <Box as="span" flex='1' textAlign='left'>
-                Etapa de vida
-              </Box>
-              {isExpanded ? (
-                <MinusIcon fontSize='12px' />
-              ) : (
-                <AddIcon fontSize='12px' />
-              )}
-            </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4}>
-            <CheckFilter/>
-          </AccordionPanel>
-        </>
-      )}
-    </AccordionItem>
-    <AccordionItem>
-      {({ isExpanded }) => (
-        <>
-          <h2>
-            <AccordionButton>
-              <Box as="span" flex='1' textAlign='left'>
-                Talla
-              </Box>
-              {isExpanded ? (
-                <MinusIcon fontSize='12px' />
-              ) : (
-                <AddIcon fontSize='12px' />
-              )}
-            </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4}>
-            <CheckFilter/>
-          </AccordionPanel>
-        </>
-      )}
-    </AccordionItem> */}
+
   </Accordion>
   )
 }
