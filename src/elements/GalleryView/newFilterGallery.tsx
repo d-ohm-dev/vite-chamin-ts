@@ -13,7 +13,11 @@ import {
   useColorModeValue 
 } from "@chakra-ui/react"
 
-
+/**
+ * 
+ * @param param0 
+ * @returns label type List
+ */
 export function CheckFilter({label}: List) {
 
   const colorMode1 = useColorModeValue( 'SlateGray', 'WhiteSmoke')
@@ -61,9 +65,9 @@ export default function FilterGallery () {
                   )}
                 </AccordionButton>
               </h2>
-                    {data.children?.map((child, c) => (
+                    {data.children?.map((child) => (
                     <AccordionPanel pb={4}>
-                      <CheckFilter key={child.label[c]} {...child} />
+                      <CheckFilter key={child.label} {...child} />
                     </AccordionPanel>
                     ))
 
