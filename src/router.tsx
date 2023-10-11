@@ -4,12 +4,19 @@ import App from "./App";
 import NotFound from "./containers/Error404";
 import ProductView from "./containers/ProductView";
 import ProductViewGallery from "./containers/ProductViewGallery";
+import LoggedNavbar from "./elements/CommonElements/LoggedNavBar";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    index: true,
     element: <App/>
   },
+  {
+    path: '/user',
+    element: <LoggedNavbar/>
+  },
+
+
   {
     path: 'product-view',
     element: <ProductViewGallery/>,

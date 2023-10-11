@@ -17,7 +17,7 @@ import {
  * 
  * @param param0 label: List
  * @returns label type List
- * El Checbox retorna solo el label
+ * El Checbox retorna solo el label pero no el children, por ende solo muestra lo labels de mayor jerarquia dentro del Array List
  */
 export function CheckFilter({label}: List) {
 
@@ -74,7 +74,6 @@ export default function FilterGallery () {
                       <CheckFilter key={child.label} {...child} />
                     </AccordionPanel>
                     ))
-
                     }
 
             </>
