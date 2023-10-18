@@ -82,7 +82,7 @@ export default function Navbar() {
             fontWeight={400}
             variant={'link'}
             href={'#'}>
-            <Link2 to={'user'}>
+            <Link2 to={'login'}>
               Ingresar
             </Link2>
           </Button>
