@@ -29,6 +29,8 @@ import {
 } from '@chakra-ui/icons';
 import { Link as Link2 } from 'react-router-dom'
 
+// const user = 
+
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
   const SwitchImg = useColorModeValue(logo, invlogo);

@@ -5,7 +5,8 @@ import NotFound from "./containers/Error404";
 import ProductView from "./containers/ProductView";
 import ProductViewGallery from "./containers/ProductViewGallery";
 // import LoggedNavbar from "./elements/CommonElements/LoggedNavBar";
-import Basic from "./forms/Formulario";
+// import LoginView from "./elements/Loginterface/LoginView";
+import Basic from "./elements/Loginterface/LoginForm";
 
 const router = createBrowserRouter([
   {
