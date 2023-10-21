@@ -64,7 +64,6 @@ export default function Basic() {
                     variant="filled"
                     placeholder='ejemplo@ejemplo.co'
                     colorScheme={textColor}
-                    errorBorderColor='red'
                 />
                   <Box color={'red.600'} >
                   <ErrorMessage name="email"  />
