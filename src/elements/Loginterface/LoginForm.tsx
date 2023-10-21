@@ -20,13 +20,21 @@ import { Link } from 'react-router-dom';
 
 
 export default function Basic() {
-  const SwitchImg = useColorModeValue(logo, invlogo);
+  const SwitchImg = useColorModeValue(logo, invlogo)
+  const textColor = useColorModeValue('gray.600', 'white')
+  const bgBoxColor = useColorModeValue( 'blue.200', 'blue.700')
+  const colorMode1 = useColorModeValue( 'SlateGray', 'WhiteSmoke')
   return (
-    <VStack bg="gray.100" align="center" justify="center" h="100vh">
+    <VStack 
+    bg={useColorModeValue('linear-gradient( to bottom right, rgba(244, 244, 244, 1), rgb(137, 209, 253) )!important', 'linear-gradient( to bottom right, #0c4083, rgba(19, 29, 77, 0.94) )!important')}
+    align="center" 
+    justify="center" 
+    h="100vh" 
+    >
       <Link to={'/'}>  
         <Img src={SwitchImg} alt="Logo" maxH='175%' maxW='175%' ml={{base: -500}} mt={{base: -20}} />
       </Link>
-      <Box bg="white" p={6} rounded="md" w={64}>
+      <Box bg={bgBoxColor} p={6} rounded="md" w={64}>
         <Formik
           initialValues={{
             email: "",
@@ -34,7 +42,7 @@ export default function Basic() {
             rememberMe: false
           }}
           validationSchema={Yup.object({
-            email: Yup.string().email('Invalid email address').required('Required'),
+            email: Yup.string().email('Correo inválido').required('Requerido'),
           })}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
@@ -46,19 +54,24 @@ export default function Basic() {
           {({ handleSubmit, errors, touched }) => (
             <Form onSubmit={handleSubmit}>
               <VStack spacing={4} align="flex-start">
-                <FormControl>
-                  <FormLabel htmlFor="email">Email Address</FormLabel>
+                <FormControl >
+                  <FormLabel color={textColor}  htmlFor="email">Correo Electrónico</FormLabel>
                   <Field
                     as={Input}
                     id="email"
                     name="email"
                     type="email"
                     variant="filled"
-                  />
-                  <ErrorMessage name="email" />
+                    placeholder='ejemplo@ejemplo.co'
+                    colorScheme={textColor}
+                    errorBorderColor='red'
+                />
+                  <Box color={'red.600'} >
+                  <ErrorMessage name="email"  />
+                  </Box>
                 </FormControl>
                 <FormControl isInvalid={!!errors.password && touched.password}>
-                  <FormLabel htmlFor="password">Password</FormLabel>
+                  <FormLabel color={textColor} htmlFor="password">Contraseña</FormLabel>
                   <Field
                     as={Input}
                     id="password"
@@ -69,7 +82,7 @@ export default function Basic() {
                       let error;
 
                       if (value.length < 6) {
-                        error = "Password must contain at least 6 characters";
+                        error = "La contraseña debe contener al menos 6 caracteres";
                       }
 
                       return error;
@@ -81,12 +94,20 @@ export default function Basic() {
                   as={Checkbox}
                   id="rememberMe"
                   name="rememberMe"
-                  colorScheme="purple"
+                  color={textColor}
+                  border={colorMode1}
                 >
-                  Remember me?
+                  Recuerdame?
                 </Field>
-                <Button type="submit" colorScheme="purple" width="full">
-                  Login
+                <Button 
+                type="submit" 
+                bg={'pink.400'}
+                _hover={{
+                  bg: 'pink.300',
+                }}
+                width="full"
+                >
+                  Ingresar
                 </Button>
               </VStack>
             </Form>
