@@ -73,7 +73,7 @@ export default function ChoosingPet() {
         <GridItem colSpan={1}>
           <VStack alignItems="flex-start" spacing="10px">
             <chakra.h2 fontSize="3xl" fontWeight="700">
-              Medium length title
+              Título
             </chakra.h2>
             <Button colorScheme="green" size="md">
               Call To Action
@@ -83,8 +83,8 @@ export default function ChoosingPet() {
         <GridItem>
           <Flex>
             <chakra.p textAlign={'left'} >
-              Provide your customers a story they would enjoy keeping in mind the
-              objectives of your website. Pay special attention to the tone of voice.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </chakra.p>
           </Flex>
 

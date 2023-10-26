@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import {createBrowserRouter } from "react-router-dom";
 // import Frontpage from "./containers/Frontpage";
 import App from "./App";
 import NotFound from "./containers/Error404";
@@ -10,16 +10,14 @@ import Basic from "./elements/Loginterface/LoginForm";
 
 const router = createBrowserRouter([
   {
-    index: true,
-    element: <App/>
+    path: '/',
+    element: <App/>,
   },
   {
     
     path: '/login',
-    element: <Basic/>
+    element:  <Basic/>,
   },
-
-
   {
     path: 'product-view',
     element: <ProductViewGallery/>,
@@ -33,6 +31,7 @@ const router = createBrowserRouter([
     element: <NotFound/>
     
   }
+
 
 ])
 
