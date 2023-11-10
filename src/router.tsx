@@ -7,6 +7,8 @@ import ProductViewGallery from "./containers/ProductViewGallery";
 // import LoggedNavbar from "./elements/CommonElements/LoggedNavBar";
 // import LoginView from "./elements/Loginterface/LoginView";
 import Basic from "./elements/Loginterface/LoginForm";
+// import RegisterForm from "./elements/Loginterface/RegisterForm";
+// import { notesLayoutLoader } from "./elements/Loginterface/loginLoader";
 
 const router = createBrowserRouter([
   {
@@ -14,8 +16,12 @@ const router = createBrowserRouter([
     element: <App/>,
   },
   {
-    
-    path: '/login',
+    path: 'register',
+    // element: <RegisterForm/>,
+    // loader: notesLayoutLoader
+  },
+  {
+    path: 'login',
     element:  <Basic/>,
   },
   {

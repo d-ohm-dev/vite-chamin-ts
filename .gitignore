@@ -1,0 +1,44 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.git
+.prettierrc
+.eslintrc.cjs
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+# src/elements/CommonElements/newNavbar.tsx
+src/elements/Loginterface/RegisterForm.tsx
+src/elements/Loginterface/loginLoader.tsx
+src/elements/Loginterface/loginAction.tsx
+src/elements/CommonElements/Navbar.tsx
+src/data/db.ts
+src/assets/icons/fontawesome-free-6.1.1-web
+src/assets/icons/Search-30-60px
+src/assets/icons/Search-32-64px
+

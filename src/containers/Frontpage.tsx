@@ -1,6 +1,6 @@
 import { Box, Grid, GridItem, useColorModeValue } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "../elements/FrontPage/ColorModeSwitcher";
-import Navbar from "../elements/CommonElements/Navbar";
+import Navbar from "../elements/CommonElements/newNavbar";
 import Carousel from "../elements/FrontPage/Carousel";
 import Cards from "../elements/FrontPage/Cards";
 import Footer from "../elements/CommonElements/Footer";
@@ -16,8 +16,8 @@ const Frontpage = () => {
     gap={0}
     bg={useColorModeValue('linear-gradient( to bottom right, rgba(244, 244, 244, 1), rgb(137, 209, 253) )', 'linear-gradient( to bottom right, #0c4083, rgba(19, 29, 77, 0.94) )')}
     >
-      <GridItem rowSpan={1} colSpan={1} >
-        <ColorModeSwitcher display='flex' position='relative' top='15%' left='93%' />
+      <GridItem rowSpan={1} colSpan={1}  >
+        <ColorModeSwitcher display='flex' position='relative' top='15%' left='93%' zIndex='overlay' />
         <Navbar/>
       </GridItem>
 

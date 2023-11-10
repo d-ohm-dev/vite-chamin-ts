@@ -101,7 +101,9 @@ export default function Navbar() {
             _hover={{
               bg: 'pink.300',
             }}>
-            Registrarse
+            <Link2 to={'/register'}>
+              Registrarse
+            </Link2>
           </Button>
         </Stack>
       </Flex>
