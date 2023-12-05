@@ -7,8 +7,8 @@ import Frontpage from './containers/Frontpage';
 function App() {
   // Here's the signature
   return (
-    <ChakraProvider theme={themes}>
-      <Frontpage/>
+    <ChakraProvider theme={themes} >
+      <Frontpage />
     </ChakraProvider>
   );
 }

@@ -1,7 +1,7 @@
 import { Box, Grid, GridItem, useColorModeValue } from "@chakra-ui/react";
 // import Navbar from "../elements/ProductView/NavbarPV";
-import Navbar from "../elements/CommonElements/Navbar";
-import { ColorModeSwitcher } from "../elements/FrontPage/ColorModeSwitcher";
+import Navbar from "../elements/CommonElements/NavBar";
+import  ColorModeSwitcher  from "../elements/FrontPage/ColorModeSwitcher";
 // import FlexView from "../elements/ProductView/ProductDetails";
 import Footer from "../elements/CommonElements/Footer";
 import ProductDetails from "../elements/ProductView/ProductDetails";
@@ -22,7 +22,7 @@ const ProductView = () => (
       <GridItem rowSpan={1} colSpan={1}>
         <ColorModeSwitcher display='flex' position='relative' top='15%' left='93%' />
         {/* <PlacementExample/> */}
-        <Navbar/>
+        <Navbar />
       </GridItem>
       <GridItem rowSpan={2} colSpan={1} >
         <ProductDetails/>

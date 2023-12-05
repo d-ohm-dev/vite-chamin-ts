@@ -1,6 +1,6 @@
 import logo from '../../assets/fotos/logo.png';
 import invlogo from '../../assets/fotos/invlogo.png';
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik, Field, Form } from "formik";
 import {
   Box,
   Button,
@@ -13,7 +13,6 @@ import {
   Img,
   useColorModeValue,
 } from "@chakra-ui/react";
-import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 
 
@@ -41,9 +40,6 @@ export default function Basic() {
             password: "",
             rememberMe: false
           }}
-          validationSchema={Yup.object({
-            email: Yup.string().email('Correo inválido').required('Requerido'),
-          })}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
               alert(JSON.stringify(values, null, 2));
@@ -54,8 +50,8 @@ export default function Basic() {
           {({ handleSubmit, errors, touched }) => (
             <Form onSubmit={handleSubmit}>
               <VStack spacing={4} align="flex-start">
-                <FormControl >
-                  <FormLabel color={textColor}  htmlFor="email">Correo Electrónico</FormLabel>
+                <FormControl isInvalid={!!errors.email && touched.email}>
+                  <FormLabel color={textColor} >Correo Electrónico</FormLabel>
                   <Field
                     as={Input}
                     id="email"
@@ -64,11 +60,22 @@ export default function Basic() {
                     variant="filled"
                     placeholder='ejemplo@ejemplo.co'
                     colorScheme={textColor}
+                    validate={(value:string) => {
+                      let error;
+
+                      if (!value) {
+                        error = 'Necesario';
+                      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+                        error = 'Correo inválido';
+                      }
+                      return error;
+                    }}
                 />
                   <Box color={'red.600'} >
-                  <ErrorMessage name="email"  />
+                    <FormErrorMessage> {errors.email} </FormErrorMessage>
                   </Box>
                 </FormControl>
+
                 <FormControl isInvalid={!!errors.password && touched.password}>
                   <FormLabel color={textColor} htmlFor="password">Contraseña</FormLabel>
                   <Field
@@ -89,6 +96,7 @@ export default function Basic() {
                   />
                   <FormErrorMessage>{errors.password}</FormErrorMessage>
                 </FormControl>
+                
                 <Field
                   as={Checkbox}
                   id="rememberMe"

@@ -1,25 +1,33 @@
 
 import { useColorMode, useColorModeValue, IconButton } from '@chakra-ui/react';
 import { FaMoon, FaSun } from 'react-icons/fa';
+import { Link, useLocation } from 'react-router-dom';
 
-export const ColorModeSwitcher= ({...props}) => {
+ const ColorModeSwitcher = ({...props}) => {
   const { toggleColorMode } = useColorMode();
-  const text = useColorModeValue('dark', 'light');
+  const mode = useColorModeValue('dark', 'light');
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
+  const location = useLocation();
 
+  //Con "location.pathname" me dirijo a la misma ruta en la que estoy, 
+  // conservo el mismo path al reiniciar con "reloadDocument"
   return (
-    <IconButton
+    <Link to={`${location.pathname}`} reloadDocument> 
+        <IconButton
       size="md"
       fontSize="lg"
-      aria-label={`Switch to ${text} mode`}
+      aria-label={`Switch to ${mode} mode`}
       variant="ghost"
       color="current"
       marginLeft="2"
       onClick={toggleColorMode}
-      onPointerUp={()=> window.location.reload()}
+      // onPointerUp={()=> window.location.reload()}
 
       icon={<SwitchIcon />}
       {...props}
     />
+    </Link>
   );
 };
+
+export default ColorModeSwitcher
