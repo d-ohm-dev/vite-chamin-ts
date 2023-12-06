@@ -43,53 +43,52 @@ export default function Navbar() {
   const colorFlex = useColorModeValue('gray.600', 'white');
   const borderColorFlex = useColorModeValue('gray.200', 'gray.900');
   const aligNav = useBreakpointValue({ base: 'center', md: 'left' });
-
-
+  const popoverBgColor = useColorModeValue('white', 'gray.800');
+  const linkHoverColor = useColorModeValue('gray.800', 'white');
 
   return (
-    
-          <Box top={0} >
-              <ColorModeSwitcher 
-              display='flex' 
-              position='relative' 
-              left='93%' 
-              zIndex='overlay' 
-              />
-          <InView 
-          rootMargin={'20%'} 
-          initialInView={true} 
-          onChange={(inView) => console.log('Inview:', inView)}
-          threshold={0.2}
-          >
-          {({inView, ref}) =>
-          <>
+    <Box top={0} >
+          <ColorModeSwitcher 
+          display='flex' 
+          position='relative' 
+          left='93%' 
+          zIndex='overlay' 
+          />
+      <InView 
+        rootMargin={'20%'} 
+        initialInView={true} 
+        onChange={(inView) => console.log('Inview:', inView)}
+        threshold={0.2}
+        >
+        {({inView, ref}) =>
+        <>
           <SlideFade 
-          in={!inView}
-          offsetY={30}
-          delay={0.3}
-          reverse={true}
-          >
-            <Box 
-            position='fixed'
-            width={'full'}
-            bg={fixedNavBg}
-            zIndex={'sticky'}
-            top={0}
+            in={!inView}
+            offsetY={30}
+            delay={0.3}
+            reverse={true}
             >
+            <Box 
+                position='fixed'
+                width={'full'}
+                bg={fixedNavBg}
+                zIndex={'sticky'}
+                top={0}
+                >
               <Stack align={aligNav}>
                 <Link2 to={'/'}>  
                   <Image src={SwitchLogo} alt="Logo"   mt={{base: 1}} boxSize={20} />
                 </Link2>
-            </Stack> 
-          </Box>
+              </Stack> 
+            </Box>
           </SlideFade>
-          
-          
-            <SlideFade
-            in={inView}
-            delay={0.3} 
-            offsetY={80}
-            >
+        
+        
+          <SlideFade
+          in={inView}
+          delay={0.3} 
+          offsetY={80}
+          >
             <Flex
             bg='inherit'
             color={colorFlex}
@@ -103,88 +102,120 @@ export default function Navbar() {
             borderColor={borderColorFlex}
             align={'center'}
             >
-            <Flex
-              flex={{ base: 1, md: 'auto' }}
-              // ml={{ base: -2 }}
-              display={{ base: 'flex', md: 'none' }}>
-              <IconButton
-                onClick={onToggle}
-                icon={
-                  isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
-                }
-                variant={'ghost'}
-                aria-label={'Toggle Navigation'}
-              />
-            </Flex>
-            <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} >
-            <Stack display='inline' align={aligNav}>
-              <Box position='relative' 
-              // right='0' 
-              p={10}
-              >
-              <Link2 to={'/'}>  
-                <Image src={SwitchLogo} alt="Logo"   mt={{base: 1}} boxSize={28} />
-              </Link2>
-              </Box>
-          </Stack>
-
-              <Flex 
-              display={{ base: 'none', md: 'flex' }} 
-              // alignItems='end' 
-              top={{base: -50 , md: -130}} 
-              pos={'relative'} 
-              left={28}
-              >
-                <DesktopNav />
+              <Flex
+                flex={{ base: 1, md: 'auto' }}
+                // ml={{ base: -2 }}
+                display={{ base: 'flex', md: 'none' }}>
+                <IconButton
+                  onClick={onToggle}
+                  icon={
+                    isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
+                  }
+                  variant={'ghost'}
+                  aria-label={'Toggle Navigation'}
+                />
               </Flex>
-            </Flex>
-
-            <Stack
-              flex={{ base: 1, md: 0 }}
-              justify={'flex-end'}
-              direction={'row'}
-              spacing={0}
-              mr={20}
-              mt={-18}
-              >
-              <Box 
-              w={{base: '0', md: '8rem'}}
-              > 
-              <Link2 to={'login'} 
+              <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} >
+              <Stack display='inline' align={aligNav}>
+                <Box position='relative' 
+                // right='0' 
+                p={10}
                 >
-                  <Image
-                    display={{ base: 'none', md: 'inline-flex' }}
-                    w={'10'}
-                    src= {SwitchUser}
-                    // mt={{base: -20}}
-
-                    alt='Login/Logon'/>
-                      
+                <Link2 to={'/'}>  
+                  <Image src={SwitchLogo} alt="Logo"   mt={{base: 1}} boxSize={28} />
                 </Link2>
-              </Box>
-              <Box w={{base: '0', md: '8rem'}}>
-              <Link2 to={'login'} 
-                >
-                  <Image
-                  display={{ base: 'none', md: 'inline-flex' }}
-                    w={'10'}
-                    src= {SwitchCart}
-                    // mt={{base: -20}}
-
-                    alt='Login/Logon'/>
-                      
-                </Link2>
-              </Box>
+                </Box>
             </Stack>
-          </Flex>
-        </SlideFade>
-          </>
-        }
-        </InView >
-          {/* ) 
-      // } 
-    }
-      </VisibilitySensor>*/}
+
+                <Flex 
+                display={{ base: 'none', md: 'flex' }} 
+                // alignItems='end' 
+                top={{base: -50 , md: -130}} 
+                pos={'relative'} 
+                left={28}
+                >
+                  <DesktopNav />
+                </Flex>
+              </Flex>
+
+              <Stack
+                flex={{ base: 1, md: 0 }}
+                justify={'flex-end'}
+                direction={'row'}
+                spacing={0}
+                mr={20}
+                mt={8}
+                >
+                <Box w={{base: '0', md: '8rem'}}> 
+                <Popover trigger={'hover'} placement={'bottom-end'} direction='ltr'>
+                <Box 
+                position={'relative'} 
+                // ml={8} 
+                // mt={56}
+                
+                >
+                  <Link
+                  
+                  >
+                  <PopoverTrigger>
+                  <Image
+                      display={{ base: 'none', md: 'inline-flex' }}
+                      w={'10'}
+                      src= {SwitchUser}
+                      // mt={{base: -20}}
+                      alt='Login/Logon'
+                      // fontFamily={'Futura'}
+                      // p={1}
+                      _hover={{
+                        color: linkHoverColor,
+                }}
+                      />
+                  </PopoverTrigger>
+                  </Link>
+                </Box>
+                  
+                  <PopoverContent
+                    // display={'run-in'}
+                    // border={0}
+                    // boxShadow={'xl'}
+                    bg={popoverBgColor}
+                    p={4}
+                    rounded={'sm'}
+                    minW={'xs'}
+                  >
+                    <Link2 to={'login'}>
+                      Login
+                    </Link2>
+                  </PopoverContent>
+                  <PopoverContent
+                    border={0}
+                    // boxShadow={'xl'}
+                    bg={popoverBgColor}
+                    p={4}
+                    rounded={'sm'}
+                    minW={'xs'}
+                  >
+                    Register
+                  </PopoverContent>
+                </Popover>
+                </Box>
+                <Box w={{base: '0', md: '8rem'}}>
+                <Link2 to={'login'}>
+                    <Image
+                    display={{ base: 'none', md: 'inline-flex' }}
+                      w={'10'}
+                      src= {SwitchCart}
+                      // mt={{base: -20}}
+                      alt='Login/Logon'/>
+                        
+                  </Link2>
+                </Box>
+              </Stack>
+            </Flex>
+          </SlideFade>
+        </>
+      }
+      </InView >
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>
@@ -214,7 +245,8 @@ const DesktopNav = () => {
                 _hover={{
                   textDecoration: 'none',
                   color: linkHoverColor,
-                }}>
+                }}
+                >
                 {navItem.label}
               </Link>
               </Box>
@@ -341,14 +373,6 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
   );
 };
 
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const USERS: Users = [ 
-  {
-    name: 'Demian',
-    password: '1234'
-  }
-]
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: 'Alimentos',
@@ -391,10 +415,10 @@ const NAV_ITEMS: Array<NavItem> = [
 ];
 
 
-interface Users {
-  name: string;
-  password: string;
-}
+// interface Users {
+//   name: string;
+//   password: string;
+// }
 
 interface NavItem {
   label: string;

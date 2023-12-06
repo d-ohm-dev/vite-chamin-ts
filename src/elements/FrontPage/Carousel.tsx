@@ -16,7 +16,7 @@ import {
   chakra,
   Button,
   Flex,
-  useColorMode,
+  // useColorMode,
 } from '@chakra-ui/react';
 // Here we have used react-icons package for the icons
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
