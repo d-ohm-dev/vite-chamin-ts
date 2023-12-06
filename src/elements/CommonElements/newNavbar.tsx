@@ -30,18 +30,8 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 import { Link as Link2 } from 'react-router-dom'
-import { 
-  // useEffect, 
-  // useState 
-  // useRef
-} from 'react';
 import ColorModeSwitcher from '../FrontPage/ColorModeSwitcher';
 import { InView } from 'react-intersection-observer';
-// import VisibilitySensor from "react-visibility-sensor"
-
-// interface ColapseSensor {
-//   isVisible: boolean;
-// }
 
 
 export default function Navbar() {
@@ -50,146 +40,41 @@ export default function Navbar() {
   const SwitchUser = useColorModeValue(userImg, userImgInv);
   const SwitchCart = useColorModeValue(shoppingCart, shoppingCartInv);
   const fixedNavBg = useColorModeValue('linear-gradient( to bottom right, rgba(244, 244, 244, 1), rgb(137, 209, 253) )', 'linear-gradient( to bottom right, #0c4083, rgba(19, 29, 77, 0.94) )');
-  // const [scrollPosition, setScrollPosition] = useState(0);
-  // const [goingUp, setGoingUp] = useState(true);
-  // const [visible, setVisible] = useState(true);
   const colorFlex = useColorModeValue('gray.600', 'white');
   const borderColorFlex = useColorModeValue('gray.200', 'gray.900');
   const aligNav = useBreakpointValue({ base: 'center', md: 'left' });
-  // const [scrollSensor, setScrollSensor] = useState(0)
-
-
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-
-
-
-//   useEffect(() => {
-
-//   () => {
-//     const currentScrollY = scrollSensor;
-    
-//     if (scrollPosition < currentScrollY && goingUp) {
-//       setGoingUp(false);
-//     }
-//     else if (scrollPosition > currentScrollY && !goingUp) {
-//       setGoingUp(true);
-//     }
-    
-//     console.log(' currentScrollY: ' + currentScrollY + ' scrollPosition: ' + scrollPosition + ' goingUp?: ' + goingUp)
-//     setScrollPosition(currentScrollY)
-    
-//     return !goingUp && setVisible(false)
-//   }
-// },[goingUp, scrollPosition, scrollSensor])
-
-  //   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  //   const handleScroll = () => {
-  //     const currentScrollY = window.scrollY;
-      
-  //     if (scrollPosition < currentScrollY && goingUp) {
-  //       setGoingUp(false);
-  //     }
-  //     if (scrollPosition > currentScrollY && !goingUp) {
-  //       setGoingUp(true);
-  //     }
-      
-  //     console.log(' currentScrollY: ' + currentScrollY + ' scrollPosition: ' + scrollPosition + ' goingUp?: ' + goingUp)
-  //     setScrollPosition(currentScrollY)
-  //   }
-
-
-  //   window.addEventListener("scroll", handleScroll, { passive: true });
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  //   }
-  // , [goingUp, scrollPosition])
-  
-  // const onChange = (isVisible:ColapseSensor) => console.log(isVisible)
-  // scrollSensor < 200 ? isVisible = true:  isVisible = false
-    
 
 
 
   return (
     
-    <Box top={0} >
+          <Box top={0} >
               <ColorModeSwitcher 
               display='flex' 
               position='relative' 
-              // top='15%' 
               left='93%' 
               zIndex='overlay' 
               />
-              {/* <Stack display='inline' align={aligNav}>
-                  <Box  
-
-                  >
-                  <Link2 to={'/'}>  
-                    <Image src={SwitchLogo} alt="Logo"   mt={{base: 1}} boxSize={20} />
-                  </Link2>
-                  </Box>
-              </Stack> 
-      <VisibilitySensor 
-      // scrollCheck={true}
-      // scrollThrottle={10}
-      partialVisibility={true}
-      offset={{bottom:200}} 
-      // minTopValue={3000}
-      // scrollDelay={100}
-      // delayedCall={true}
-      // onChange={onChange}
-      >
-      {({isVisible}:ColapseSensor)=> 
-      // {
-
-      //     return 
-        //   isVisible ? ( 
-        //   // <OnChange isVisible={!isVisible} /> 
-        //   <Box 
-        //   // position='absolute'
-        //   width={'full'}
-        //   border={'1px solid black'}
-        //   bg={fixedNavBg}
-        //   zIndex={'1'}
-        //   top={0}
-          
-        //   >
-        //   <Stack align={aligNav}>
-        //     <Link2 to={'/'}>  
-        //       <Image src={SwitchLogo} alt="Logo"   mt={{base: 1}} boxSize={20} />
-        //     </Link2>
-        // </Stack> 
-        //   </Box>
-          
-        //   ) :
-  
-          (*/}
           <InView 
-          rootMargin={'250px'} 
-          // initialInView={true} 
+          rootMargin={'20%'} 
+          initialInView={true} 
           onChange={(inView) => console.log('Inview:', inView)}
-          // skip={true}
-          threshold={0.9}
-          // triggerOnce={true}
-          // delay={200}
+          threshold={0.2}
           >
           {({inView, ref}) =>
-          // <OnChange isVisible={!isVisible} /> 
           <>
           <SlideFade 
           in={!inView}
           offsetY={30}
+          delay={0.3}
           reverse={true}
-          unmountOnExit={true}
           >
             <Box 
             position='fixed'
             width={'full'}
-            // border={'1px solid black'}
             bg={fixedNavBg}
             zIndex={'sticky'}
             top={0}
-            // display={inView? 'none' : 'block' }
             >
               <Stack align={aligNav}>
                 <Link2 to={'/'}>  
@@ -201,16 +86,9 @@ export default function Navbar() {
           
           
             <SlideFade
-            // direction={'top'}
-            in={inView} 
-            // endingHeight={10}
-            // startingHeight={'10%'}
-            // offsetY={'100px'}
-            // animateOpacity={false} 
+            in={inView}
+            delay={0.3} 
             offsetY={80}
-            // reverse={true}
-            // unmountOnExit={true}
-
             >
             <Flex
             bg='inherit'
@@ -323,16 +201,6 @@ const DesktopNav = () => {
     <Stack direction={'row'} spacing={0} >
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label} >
-          {/* <Box 
-          borderTop={'1px'}
-          borderStyle={'dotted'}
-          borderColor={'gray'}
-          w={'24'} 
-          mt={'52'} 
-          h={'10'}
-          transform={'rotate(60deg)'} 
-          ml={-3}
-          ></Box> */}
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
               <Box position={'relative'} ml={8} mt={56}>
@@ -473,6 +341,14 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
   );
 };
 
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const USERS: Users = [ 
+  {
+    name: 'Demian',
+    password: '1234'
+  }
+]
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: 'Alimentos',
@@ -513,6 +389,12 @@ const NAV_ITEMS: Array<NavItem> = [
     href: '#',
   },
 ];
+
+
+interface Users {
+  name: string;
+  password: string;
+}
 
 interface NavItem {
   label: string;

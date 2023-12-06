@@ -1,6 +1,6 @@
 import { Box, Grid, GridItem, useColorModeValue } from "@chakra-ui/react";
 // import Navbar from "../elements/ProductView/NavbarPV";
-import Navbar from "../elements/CommonElements/NavBar";
+import Navbar from "../elements/CommonElements/newNavBar";
 import ColorModeSwitcher from "../elements/FrontPage/ColorModeSwitcher";
 // import FlexView from "../elements/ProductView/ProductDetails";
 import Footer from "../elements/CommonElements/Footer";

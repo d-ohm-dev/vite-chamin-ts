@@ -1,5 +1,5 @@
 import { Box, Grid, GridItem, useColorModeValue } from "@chakra-ui/react";
-import Navbar from "../elements/CommonElements/newNavbar";
+import Navbar from "../elements/CommonElements/newNavBar";
 import Carousel from "../elements/FrontPage/Carousel";
 import Cards from "../elements/FrontPage/Cards";
 import Footer from "../elements/CommonElements/Footer";
