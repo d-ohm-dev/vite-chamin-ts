@@ -73,7 +73,7 @@ export default function Carousel() {
     },
   ];
 
-  const {toggleColorMode}  = useColorMode()
+  // const {toggleColorMode}  = useColorMode()
 
   // const { isOpen, onToggle } = useDisclosure()
 
@@ -176,7 +176,7 @@ export default function Carousel() {
           h='s'
           w={{base: 'sm', md: 'lg', lg: '4xl'}}
           transform={{base: 'translate(-48%, 0)', md: 'translate(-48%, 0)'}}
-          onClick={toggleColorMode}
+          // onClick={toggleColorMode}
           >
             <GridItem>
               <Flex>
