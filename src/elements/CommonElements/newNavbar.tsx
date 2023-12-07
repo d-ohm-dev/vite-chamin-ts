@@ -22,6 +22,9 @@ import {
   useDisclosure,
   Image,
   SlideFade,
+  PopoverBody,
+  PopoverFooter,
+  ScaleFade,
 } from '@chakra-ui/react';
 import {
   HamburgerIcon,
@@ -40,11 +43,11 @@ export default function Navbar() {
   const SwitchUser = useColorModeValue(userImg, userImgInv);
   const SwitchCart = useColorModeValue(shoppingCart, shoppingCartInv);
   const fixedNavBg = useColorModeValue('linear-gradient( to bottom right, rgba(244, 244, 244, 1), rgb(137, 209, 253) )', 'linear-gradient( to bottom right, #0c4083, rgba(19, 29, 77, 0.94) )');
-  const colorFlex = useColorModeValue('gray.600', 'white');
+  const colorFlex = useColorModeValue('gray.600', 'rgba(137, 200, 250, 0.95 )');
   const borderColorFlex = useColorModeValue('gray.200', 'gray.900');
   const aligNav = useBreakpointValue({ base: 'center', md: 'left' });
-  const popoverBgColor = useColorModeValue('white', 'gray.800');
-  const linkHoverColor = useColorModeValue('gray.800', 'white');
+  const popoverBgColor = useColorModeValue('rgba(137, 200, 250, 0.95 )', 'rgba(20, 30, 77, 0.95)');
+  const linkHoverColor = useColorModeValue('gray.800', 'rgba(137, 200, 250, 0.95 )');
 
   return (
     <Box top={0} >
@@ -59,12 +62,19 @@ export default function Navbar() {
         initialInView={true} 
         onChange={(inView) => console.log('Inview:', inView)}
         threshold={0.2}
+        //Usamos InView de API "react-intersection-observer" para animar la barra de navegación
+        // We use "InView" from "react-intersection-observer" API to make the Nav Bar animated
+        // mas info/more info 👇 
+        // https://github.com/zygisS22/intersectionObserverApi
         >
         {({inView, ref}) =>
         <>
           <SlideFade 
+          // Este SlideFade renderiza el efecto de la barra "fixed" desplegable cuando se desplaza hacia abajo
+          // This "Slidefade" renders the effect of "fixed" dropdown bar when scroll down
             in={!inView}
-            offsetY={30}
+            offsetY={40}
+            offsetX={15}
             delay={0.3}
             reverse={true}
             >
@@ -84,27 +94,25 @@ export default function Navbar() {
           </SlideFade>
         
         
-          <SlideFade
+          <ScaleFade
+          // Este ScaleFade renderiza el efecto del NavBar cuando se hace visible en scroll de abajo hacia arriba
+          // This "Scalefade" renders the effect of the Navbar when get visible on scroll up
           in={inView}
           delay={0.3} 
-          offsetY={80}
           >
             <Flex
             bg='inherit'
             color={colorFlex}
             ref={ref}
-
-            // minH={'60px'}
-            // py={{ base: 6 }}
-            // px={{ base: 4 }}
             borderBottom={1}
             borderStyle={'solid'}
             borderColor={borderColorFlex}
             align={'center'}
             >
+
               <Flex
+              //Este Flex renderiza solo en vista de móviles
                 flex={{ base: 1, md: 'auto' }}
-                // ml={{ base: -2 }}
                 display={{ base: 'flex', md: 'none' }}>
                 <IconButton
                   onClick={onToggle}
@@ -115,10 +123,15 @@ export default function Navbar() {
                   aria-label={'Toggle Navigation'}
                 />
               </Flex>
-              <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} >
+                  
+              <Flex 
+              // Este Flex despliega el Navbar 
+              // This "Flex" displays the Navbar
+              flex={{ base: 1 }} 
+              justify={{ base: 'center', md: 'start' }} 
+              >
               <Stack display='inline' align={aligNav}>
                 <Box position='relative' 
-                // right='0' 
                 p={10}
                 >
                 <Link2 to={'/'}>  
@@ -134,29 +147,29 @@ export default function Navbar() {
                 pos={'relative'} 
                 left={28}
                 >
-                  <DesktopNav />
+                  <DesktopNav
+                  // Aca el menu de opciones
+                  // Here the option menu
+                  />
                 </Flex>
               </Flex>
 
               <Stack
+              // Acá renderizamos los iconos de usuario y carrito
+              // Here render the user and shopping cart icons
                 flex={{ base: 1, md: 0 }}
                 justify={'flex-end'}
                 direction={'row'}
                 spacing={0}
                 mr={20}
-                mt={8}
+                // mt={'-60'}
                 >
                 <Box w={{base: '0', md: '8rem'}}> 
-                <Popover trigger={'hover'} placement={'bottom-end'} direction='ltr'>
+                <Popover trigger={'hover'} placement={'bottom-end'}>
                 <Box 
                 position={'relative'} 
-                // ml={8} 
-                // mt={56}
-                
                 >
-                  <Link
-                  
-                  >
+                  <Link>
                   <PopoverTrigger>
                   <Image
                       display={{ base: 'none', md: 'inline-flex' }}
@@ -164,8 +177,6 @@ export default function Navbar() {
                       src= {SwitchUser}
                       // mt={{base: -20}}
                       alt='Login/Logon'
-                      // fontFamily={'Futura'}
-                      // p={1}
                       _hover={{
                         color: linkHoverColor,
                 }}
@@ -173,34 +184,28 @@ export default function Navbar() {
                   </PopoverTrigger>
                   </Link>
                 </Box>
-                  
                   <PopoverContent
-                    // display={'run-in'}
-                    // border={0}
-                    // boxShadow={'xl'}
-                    bg={popoverBgColor}
-                    p={4}
-                    rounded={'sm'}
-                    minW={'xs'}
-                  >
-                    <Link2 to={'login'}>
-                      Login
-                    </Link2>
-                  </PopoverContent>
-                  <PopoverContent
-                    border={0}
-                    // boxShadow={'xl'}
-                    bg={popoverBgColor}
-                    p={4}
-                    rounded={'sm'}
-                    minW={'xs'}
-                  >
-                    Register
-                  </PopoverContent>
+                      display={'run-in'}
+                      border={0}
+                      boxShadow={'lg'}
+                      bg={popoverBgColor}
+                      p={4}
+                      rounded={'sm'}
+                      minW={'2xs'}
+                    >
+                      <PopoverBody>
+                      <Link2 to={'login'}>
+                        Login
+                      </Link2>
+                      </PopoverBody>
+                      <PopoverFooter>
+                      Register
+                      </PopoverFooter>
+                    </PopoverContent>
                 </Popover>
                 </Box>
                 <Box w={{base: '0', md: '8rem'}}>
-                <Link2 to={'login'}>
+                <Link2 to={'/'}>
                     <Image
                     display={{ base: 'none', md: 'inline-flex' }}
                       w={'10'}
@@ -212,7 +217,7 @@ export default function Navbar() {
                 </Box>
               </Stack>
             </Flex>
-          </SlideFade>
+          </ScaleFade>
         </>
       }
       </InView >
@@ -225,8 +230,8 @@ export default function Navbar() {
 
 const DesktopNav = () => {
   const linkColor = useColorModeValue('gray.600', 'gray.200');
-  const linkHoverColor = useColorModeValue('gray.800', 'white');
-  const popoverContentBgColor = useColorModeValue('white', 'gray.800');
+  const linkHoverColor = useColorModeValue('gray.800', 'rgba(137, 200, 250, 0.95 )');
+  const popoverContentBgColor = useColorModeValue('rgba(137, 200, 250, 0.95 )', 'gray.800');
 
   return (
     <Stack direction={'row'} spacing={0} >
@@ -312,7 +317,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
 const MobileNav = () => {
   return (
     <Stack
-      bg={useColorModeValue('white', 'gray.800')}
+      bg={useColorModeValue('rgba(137, 200, 250, 0.95 )', 'gray.800')}
       p={4}
       display={{ md: 'none' }}>
       {NAV_ITEMS.map((navItem) => (
