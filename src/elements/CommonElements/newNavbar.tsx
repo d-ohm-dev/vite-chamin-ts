@@ -38,16 +38,7 @@ import { InView } from 'react-intersection-observer';
 
 
 export default function Navbar() {
-  const { isOpen, onToggle } = useDisclosure();
-  const SwitchLogo = useColorModeValue(logo, invlogo);
-  const SwitchUser = useColorModeValue(userImg, userImgInv);
-  const SwitchCart = useColorModeValue(shoppingCart, shoppingCartInv);
-  const fixedNavBg = useColorModeValue('linear-gradient( to bottom right, rgba(244, 244, 244, 1), rgb(137, 209, 253) )', 'linear-gradient( to bottom right, #0c4083, rgba(19, 29, 77, 0.94) )');
-  const colorFlex = useColorModeValue('gray.600', 'rgba(137, 200, 250, 0.95 )');
-  const borderColorFlex = useColorModeValue('gray.200', 'gray.900');
-  const aligNav = useBreakpointValue({ base: 'center', md: 'left' });
-  const popoverBgColor = useColorModeValue('rgba(137, 200, 250, 0.95 )', 'rgba(20, 30, 77, 0.95)');
-  const linkHoverColor = useColorModeValue('gray.800', 'rgba(137, 200, 250, 0.95 )');
+  const { isOpen } = useDisclosure();
 
   return (
     <Box top={0} >
@@ -57,17 +48,37 @@ export default function Navbar() {
           left='93%' 
           zIndex='overlay' 
           />
+          <InViewNavBar/>
+      <Collapse in={isOpen} animateOpacity>
+        <MobileNav />
+      </Collapse>
+    </Box>
+  );
+}
+
+const InViewNavBar = () => {
+  const { isOpen, onToggle } = useDisclosure();
+  const SwitchLogo = useColorModeValue(logo, invlogo);
+  const fixedNavBg = useColorModeValue('linear-gradient( to bottom right, rgba(244, 244, 244, 1), rgb(137, 209, 253) )', 'linear-gradient( to bottom right, #0c4083, rgba(19, 29, 77, 0.94) )');
+  const colorFlex = useColorModeValue('gray.600', 'rgba(137, 200, 250, 0.95 )');
+  const borderColorFlex = useColorModeValue('gray.200', 'gray.900');
+  const aligNav = useBreakpointValue({ base: 'center', md: 'left' });
+
+
+
+  return (
+    <>
       <InView 
-        rootMargin={'20%'} 
-        initialInView={true} 
-        onChange={(inView) => console.log('Inview:', inView)}
-        threshold={0.2}
-        //Usamos InView de API "react-intersection-observer" para animar la barra de navegación
-        // We use "InView" from "react-intersection-observer" API to make the Nav Bar animated
-        // mas info/more info 👇 
-        // https://github.com/zygisS22/intersectionObserverApi
-        >
-        {({inView, ref}) =>
+      rootMargin={'20%'} 
+      initialInView={true} 
+      // onChange={(inView) => console.log('Inview:', inView)}
+      threshold={0.2}
+      //Usamos InView de API "react-intersection-observer" para animar la barra de navegación
+      // We use "InView" from "react-intersection-observer" API to make the Nav Bar animated
+      // mas info/more info 👇 
+      // https://github.com/zygisS22/intersectionObserverApi
+      >
+      {({inView, ref}) =>
         <>
           <SlideFade 
           // Este SlideFade renderiza el efecto de la barra "fixed" desplegable cuando se desplaza hacia abajo
@@ -87,18 +98,30 @@ export default function Navbar() {
                 >
               <Stack align={aligNav}>
                 <Link2 to={'/'}>  
-                  <Image src={SwitchLogo} alt="Logo"   mt={{base: 1}} boxSize={20} />
+                  <Image src={SwitchLogo} alt="Logo"   mt={{base: 1, md: 2}} boxSize={20} ml={6}/>
                 </Link2>
               </Stack> 
+              <Flex
+              // Aca el menu de opciones
+              // Here the option menu 
+              display={{ base: 'none', md: 'flex' }} 
+              alignItems='end' 
+              top={{base: -50 , md: -200}} 
+              pos={'absolute'} 
+              left={80}
+              >
+                <DesktopNav fontFamily={'Futura'} fontSize={'0.97rem'} />
+                <NavIcons ml={150} mb={-4}/>
+              </Flex>
             </Box>
+
           </SlideFade>
-        
-        
+          
           <ScaleFade
           // Este ScaleFade renderiza el efecto del NavBar cuando se hace visible en scroll de abajo hacia arriba
           // This "Scalefade" renders the effect of the Navbar when get visible on scroll up
           in={inView}
-          delay={0.3} 
+          delay={0.5} 
           >
             <Flex
             bg='inherit'
@@ -112,123 +135,128 @@ export default function Navbar() {
 
               <Flex
               //Este Flex renderiza solo en vista de móviles
-                flex={{ base: 1, md: 'auto' }}
-                display={{ base: 'flex', md: 'none' }}>
+              flex={{ base: 1, md: 'auto' }}
+              display={{ base: 'flex', md: 'none' }}>
                 <IconButton
-                  onClick={onToggle}
-                  icon={
-                    isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
-                  }
-                  variant={'ghost'}
-                  aria-label={'Toggle Navigation'}
+                onClick={onToggle}
+                icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
+                variant={'ghost'}
+                aria-label={'Toggle Navigation'}
                 />
               </Flex>
-                  
+                
               <Flex 
               // Este Flex despliega el Navbar 
               // This "Flex" displays the Navbar
               flex={{ base: 1 }} 
               justify={{ base: 'center', md: 'start' }} 
               >
-              <Stack display='inline' align={aligNav}>
-                <Box position='relative' 
-                p={10}
-                >
-                <Link2 to={'/'}>  
-                  <Image src={SwitchLogo} alt="Logo"   mt={{base: 1}} boxSize={28} />
-                </Link2>
-                </Box>
-            </Stack>
+                <Stack display='inline' align={aligNav}>
+                    <Box position='relative' 
+                    p={10}
+                    >
+                      <Link2 to={'/'}>  
+                        <Image src={SwitchLogo} alt="Logo"   mt={{base: 1}} boxSize={28} />
+                      </Link2>
+                    </Box>
+                </Stack>
 
-                <Flex 
+                <Flex
+              // Aca el menu de opciones
+              // Here the option menu 
                 display={{ base: 'none', md: 'flex' }} 
                 // alignItems='end' 
                 top={{base: -50 , md: -130}} 
                 pos={'relative'} 
                 left={28}
                 >
-                  <DesktopNav
-                  // Aca el menu de opciones
-                  // Here the option menu
-                  />
+                  <DesktopNav fontFamily={'Futura'} fontSize={'lg'}/>
                 </Flex>
               </Flex>
-
-              <Stack
-              // Acá renderizamos los iconos de usuario y carrito
-              // Here render the user and shopping cart icons
-                flex={{ base: 1, md: 0 }}
-                justify={'flex-end'}
-                direction={'row'}
-                spacing={0}
-                mr={20}
-                // mt={'-60'}
-                >
-                <Box w={{base: '0', md: '8rem'}}> 
-                <Popover trigger={'hover'} placement={'bottom-end'}>
-                <Box 
-                position={'relative'} 
-                >
-                  <Link>
-                  <PopoverTrigger>
-                  <Image
-                      display={{ base: 'none', md: 'inline-flex' }}
-                      w={'10'}
-                      src= {SwitchUser}
-                      // mt={{base: -20}}
-                      alt='Login/Logon'
-                      _hover={{
-                        color: linkHoverColor,
-                }}
-                      />
-                  </PopoverTrigger>
-                  </Link>
-                </Box>
-                  <PopoverContent
-                      display={'run-in'}
-                      border={0}
-                      boxShadow={'lg'}
-                      bg={popoverBgColor}
-                      p={4}
-                      rounded={'sm'}
-                      minW={'2xs'}
-                    >
-                      <PopoverBody>
-                      <Link2 to={'login'}>
-                        Login
-                      </Link2>
-                      </PopoverBody>
-                      <PopoverFooter>
-                      Register
-                      </PopoverFooter>
-                    </PopoverContent>
-                </Popover>
-                </Box>
-                <Box w={{base: '0', md: '8rem'}}>
-                <Link2 to={'/'}>
-                    <Image
-                    display={{ base: 'none', md: 'inline-flex' }}
-                      w={'10'}
-                      src= {SwitchCart}
-                      // mt={{base: -20}}
-                      alt='Login/Logon'/>
-                        
-                  </Link2>
-                </Box>
-              </Stack>
+              <NavIcons mr={20} />
             </Flex>
           </ScaleFade>
         </>
-      }
+        }
       </InView >
-      <Collapse in={isOpen} animateOpacity>
-        <MobileNav />
-      </Collapse>
-    </Box>
-  );
+    </>
+  )
 }
 
-const DesktopNav = () => {
+const NavIcons = ({...props}) => {
+  const SwitchCart = useColorModeValue(shoppingCart, shoppingCartInv);
+  const SwitchUser = useColorModeValue(userImg, userImgInv);
+  const popoverBgColor = useColorModeValue('rgba(137, 200, 250, 0.95 )', 'rgba(20, 30, 77, 0.95)');
+  const linkHoverColor = useColorModeValue('gray.800', 'rgba(137, 200, 250, 0.95 )');
+  
+  return (
+    <>
+      <Stack
+    // Acá renderizamos los iconos de usuario y carrito
+    // Here render the user and shopping cart icons
+      flex={{ base: 1, md: 0 }}
+      justify={'flex-end'}
+      direction={'row'}
+      spacing={0}
+      {...props}
+      // mr={20}
+      // mt={'-60'}
+      >
+        <Box w={{base: '0', md: '8rem'}}> 
+          <Popover trigger={'hover'} placement={'bottom-end'}>
+            <Box 
+            position={'relative'} 
+            >
+              <Link>
+                <PopoverTrigger>
+                  <Image
+                  display={{ base: 'none', md: 'inline-flex' }}
+                  w={'10'}
+                  src= {SwitchUser}
+                  // mt={{base: -20}}
+                  alt='Login/Logon'
+                  _hover={{color: linkHoverColor}}
+                      />
+                </PopoverTrigger>
+              </Link>
+            </Box>
+            <PopoverContent
+                display={'run-in'}
+                border={0}
+                boxShadow={'lg'}
+                bg={popoverBgColor}
+                p={4}
+                rounded={'sm'}
+                minW={'2xs'}
+              >
+                <PopoverBody>
+                  <Link2 to={'login'}>
+                    Login
+                  </Link2>
+                </PopoverBody>
+                <PopoverFooter>
+                  Register
+                </PopoverFooter>
+              </PopoverContent>
+          </Popover>
+        </Box>
+        <Box w={{base: '0', md: '8rem'}}>
+          <Link2 to={'/'}>
+            <Image
+            display={{ base: 'none', md: 'inline-flex' }}
+              w={'10'}
+              src= {SwitchCart}
+              // mt={{base: -20}}
+              alt='Login/Logon'/>
+                
+          </Link2>
+        </Box>
+      </Stack>
+    </>
+  )
+}
+
+const DesktopNav = ({...props}) => {
   const linkColor = useColorModeValue('gray.600', 'gray.200');
   const linkHoverColor = useColorModeValue('gray.800', 'rgba(137, 200, 250, 0.95 )');
   const popoverContentBgColor = useColorModeValue('rgba(137, 200, 250, 0.95 )', 'gray.800');
@@ -241,16 +269,16 @@ const DesktopNav = () => {
             <PopoverTrigger>
               <Box position={'relative'} ml={8} mt={56}>
               <Link
-                fontFamily={'Futura'}
+                // fontFamily={'Futura'}
                 p={1}
                 href={navItem.href ?? '#'}
-                fontSize={'lg'}
-                fontWeight={500}
+                // fontSize={'lg'}
                 color={linkColor}
                 _hover={{
                   textDecoration: 'none',
                   color: linkHoverColor,
                 }}
+                {...props}
                 >
                 {navItem.label}
               </Link>

@@ -1,4 +1,4 @@
-import notes from "../data/db";
+import {notes} from "../data/db";
 // import type Note from "../data/db"
 const KEY = "notes";
 
