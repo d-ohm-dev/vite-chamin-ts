@@ -36,7 +36,6 @@ dist-ssr
 src/elements/Loginterface/RegisterForm.tsx
 src/elements/Loginterface/loginLoader.tsx
 src/elements/Loginterface/loginAction.tsx
-src/elements/CommonElements/Navbar.tsx
 src/data/db.ts
 src/assets/icons/fontawesome-free-6.1.1-web
 src/assets/icons/Search-30-60px

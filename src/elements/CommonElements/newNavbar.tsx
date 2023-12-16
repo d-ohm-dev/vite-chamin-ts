@@ -110,7 +110,7 @@ const InViewNavBar = () => {
               pos={'absolute'} 
               left={80}
               >
-                <DesktopNav fontFamily={'Futura'} fontSize={'0.97rem'} />
+                <DesktopNav  fontSize={'0.97rem'} />
                 <NavIcons ml={150} mb={-4}/>
               </Flex>
             </Box>
@@ -170,7 +170,7 @@ const InViewNavBar = () => {
                 pos={'relative'} 
                 left={28}
                 >
-                  <DesktopNav fontFamily={'Futura'} fontSize={'lg'}/>
+                  <DesktopNav  fontSize={'lg'}/>
                 </Flex>
               </Flex>
               <NavIcons mr={20} />
@@ -269,7 +269,7 @@ const DesktopNav = ({...props}) => {
             <PopoverTrigger>
               <Box position={'relative'} ml={8} mt={56}>
               <Link
-                // fontFamily={'Futura'}
+                // 
                 p={1}
                 href={navItem.href ?? '#'}
                 // fontSize={'lg'}
@@ -321,7 +321,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           <Text
             transition={'all .3s ease'}
             _groupHover={{ color: 'pink.400' }}
-            fontFamily={'Futura'}
+            
             fontWeight={500}>
             {label}
           </Text>
@@ -371,7 +371,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         }}>
         <Text
           fontWeight={600}
-          fontFamily={'Futura'}
+          
           color={useColorModeValue('gray.600', 'gray.200')}>
           {label}
         </Text>
