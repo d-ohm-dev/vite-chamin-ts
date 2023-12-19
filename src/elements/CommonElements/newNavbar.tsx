@@ -104,7 +104,7 @@ const InViewNavBar = () => {
             zIndex={'sticky'}
             top={0}
             >
-              <Stack align={aligNav} >
+              <Stack align={aligNav}>
                 <Link2 to={'/'}>  
                   <Image src={SwitchLogo} alt="Logo"   mt={{base: 1, md: 2}} boxSize={20} ml={6}/>
                 </Link2>
