@@ -42,13 +42,13 @@ export default function Navbar() {
 
   return (
     <Box top={0} >
-          <ColorModeSwitcher 
-          display='flex' 
-          position='relative' 
-          left='93%' 
-          zIndex='overlay' 
-          />
-          <InViewNavBar/>
+      <ColorModeSwitcher 
+      display='flex' 
+      position='relative' 
+      left='93%' 
+      zIndex='overlay' 
+      />
+      <InViewNavBar />
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>
@@ -67,7 +67,15 @@ const InViewNavBar = () => {
 
 
   return (
-    <>
+    /* 
+    ES:
+    Implemento "Inview" de "react-intersection-oserver" para detectar la visibilidad de mi "Navbar" dentro del "ScaleFade",
+    al dejar esta de estar visible hace que se despliegue la "drop down bar" y viceversa
+    EN:
+    I implement "Inview" from "react-intersection-oserver" to detect the visibility of my "Navbar" within the "ScaleFade", 
+    when it stops being visible it causes the "drop down bar" to be displayed and vice versa
+    */
+    <Box>
       <InView 
       rootMargin={'20%'} 
       initialInView={true} 
@@ -79,7 +87,7 @@ const InViewNavBar = () => {
       // https://github.com/zygisS22/intersectionObserverApi
       >
       {({inView, ref}) =>
-        <>
+        <Box >
           <SlideFade 
           // Este SlideFade renderiza el efecto de la barra "fixed" desplegable cuando se desplaza hacia abajo
           // This "Slidefade" renders the effect of "fixed" dropdown bar when scroll down
@@ -90,13 +98,13 @@ const InViewNavBar = () => {
             reverse={true}
             >
             <Box 
-                position='fixed'
-                width={'full'}
-                bg={fixedNavBg}
-                zIndex={'sticky'}
-                top={0}
-                >
-              <Stack align={aligNav}>
+            position='fixed'
+            width={'full'}
+            bg={fixedNavBg}
+            zIndex={'sticky'}
+            top={0}
+            >
+              <Stack align={aligNav} >
                 <Link2 to={'/'}>  
                   <Image src={SwitchLogo} alt="Logo"   mt={{base: 1, md: 2}} boxSize={20} ml={6}/>
                 </Link2>
@@ -176,10 +184,10 @@ const InViewNavBar = () => {
               <NavIcons mr={20} />
             </Flex>
           </ScaleFade>
-        </>
+        </Box>
         }
       </InView >
-    </>
+    </Box>
   )
 }
 

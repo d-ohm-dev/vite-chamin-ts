@@ -1,18 +1,18 @@
-import {notes} from "../data/db";
-// import type Note from "../data/db"
-const KEY = "notes";
+import {users} from "../data/db";
+// import type UserID from "../data/db"
+const KEY = "users";
 
-export interface Note {
+export interface UserID {
   id: string;
-  title: string;
-  body: string;
+  name: string;
+  email: string;
   createdAt: string;
 }
 /**
- * @typedef Note
+ * @typedef UserID
  * @property {string} id
- * @property {string} title
- * @property {string} body
+ * @property {string} name
+ * @property {string} email
  * @property {string} createdAt
  */
 
@@ -21,7 +21,7 @@ export function generateId() {
 }
 
 export function populate() {
-  localStorage.setItem(KEY, JSON.stringify(notes));
+  localStorage.setItem(KEY, JSON.stringify(users));
 }
 
 /**
@@ -31,76 +31,75 @@ export function populate() {
 const sleep = (ms: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
- * Get all notes in the DB
- * @returns {Promise<Note[]>}
+ * Get all users in the DB
+ * @returns {Promise<UserID[]>}
  */
 export async function getAllNotes() {
-  await fakeNetwork(); // getAllNotes finge una conexion con un servidor  y luego lee
-  // de "localStorage", pero perfectamente aca puede ir un fetch a un URL
-  // let response = fetch("/api/notes");
+  await fakeNetwork(); 
+  // let response = fetch("/api/users");
   const storedValue = localStorage.getItem(KEY);
   if (!storedValue) return [];
   return JSON.parse(storedValue);
 }
 
 /**
- * Get a single note by ID
- * @param {string} id The ID of the note to get
- * @returns {Promise<Note> | Promise<null>}
+ * Get a single user by ID
+ * @param {string} id The ID of the user to get
+ * @returns {Promise<UserID> | Promise<null>}
  */
-export async function getNoteById(id: Note) {
+export async function getNoteById(id: UserID) {
   await fakeNetwork();
-  const notes = await getAllNotes();
-  const note = notes.users.find((): boolean => note.id === id);
-  if (!note) return null;
-  return note;
+  const users = await getAllNotes();
+  const user = users.users.find((): boolean => user.id === id);
+  if (!user) return null;
+  return user;
 }
 
 /**
- * Create a new note and save it
- * @param {string} title The title of the new note
- * @param {string} body The body of the new note
- * @returns {Promise<Note>}
+ * Create a new user and save it
+ * @param {string} name The name of the new user
+ * @param {string} email The email of the new user
+ * @returns {Promise<UserID>}
  */
-export async function createNote({title, body}:Note) {
+export async function createNote({name, email}:UserID) {
   await fakeNetwork();
   const id = generateId();
   const createdAt = new Date().toISOString();
 
   /**
-   * @type {Note}
+   * @type {UserID}
    */
-  const note: Note = { id, title, body, createdAt };
+  const user: UserID = { id, name, email, createdAt };
 
-  const notes = await getAllNotes();
-  notes.push(note);
-  localStorage.setItem(KEY, JSON.stringify(notes));
-  return note;
+  const users = await getAllNotes();
+  users.push(user);
+  localStorage.setItem(KEY, JSON.stringify(users));
+  return user;
 }
 
 /**
- * Deletes a note by ID
- * @param {string} id The ID of the note to delete
+ * Deletes a user by ID
+ * @param {string} id The ID of the user to delete
  * @returns {Promise<void>}
  */
-export async function deleteNote({id}:Note) {
+export async function deleteNote({id}:UserID) {
   await fakeNetwork();
-  const notes = await getAllNotes();
-  const filteredNotes = notes.filter((note:Note) => note.id !== id);
+  const users = await getAllNotes();
+  const filteredNotes = users.filter((user:UserID) => user.id !== id);
   localStorage.setItem(KEY, JSON.stringify(filteredNotes));
 }
 
-export async function updateNote({id, title, body}:Note){
+export async function updateNote({id, name, email}:UserID){
   await fakeNetwork();
-  let notes = await getAllNotes();
-   notes = notes.map((note: Note) => {
-    if (note.body !== id) return note;
-    note.title = title;
-    note.body = body;
-    return note;
+  let users = await getAllNotes();
+   users = users.map((user: UserID) => {
+    if (user.email !== id) return user;
+    user.name = name;
+    user.email = email;
+    return user;
   });
-  localStorage.setItem(KEY, JSON.stringify(notes));
-  return notes.find((note: Note) => note.id === id);
+  localStorage.setItem(KEY, JSON.stringify(users));
+  return users.find((user: UserID) => user.id === id);
 }
 
 async function fakeNetwork() {
