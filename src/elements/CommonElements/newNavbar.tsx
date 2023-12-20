@@ -36,7 +36,11 @@ import { Link as Link2 } from 'react-router-dom'
 import ColorModeSwitcher from '../FrontPage/ColorModeSwitcher';
 import { InView } from 'react-intersection-observer';
 
-
+/**
+ * @function default component
+ * @param 
+ * @returns the Navbar main component
+ */
 export default function Navbar() {
   const { isOpen } = useDisclosure();
 
@@ -50,11 +54,17 @@ export default function Navbar() {
       />
       <InViewNavBar />
       <Collapse in={isOpen} animateOpacity>
-        <MobileNav />
+        <MobileMenu />
       </Collapse>
     </Box>
   );
 }
+
+/**
+ * @function Responsive rollbar
+ * @returns rollbar animation
+ * 
+ */
 
 const InViewNavBar = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -118,7 +128,7 @@ const InViewNavBar = () => {
               pos={'absolute'} 
               left={80}
               >
-                <DesktopNav  fontSize={'0.97rem'} />
+                <DesktopMenu  fontSize={'0.97rem'} />
                 <NavIcons ml={150} mb={-4}/>
               </Flex>
             </Box>
@@ -143,6 +153,7 @@ const InViewNavBar = () => {
 
               <Flex
               //Este Flex renderiza solo en vista de móviles
+              // This Flex renderize only mobile display
               flex={{ base: 1, md: 'auto' }}
               display={{ base: 'flex', md: 'none' }}>
                 <IconButton
@@ -178,10 +189,14 @@ const InViewNavBar = () => {
                 pos={'relative'} 
                 left={28}
                 >
-                  <DesktopNav  fontSize={'lg'}/>
+                  <DesktopMenu  fontSize={'lg'}/>
                 </Flex>
+                
               </Flex>
-              <NavIcons mr={20} />
+              <NavIcons mr={20} 
+              // Aca los íconos de la barra de navegación
+              // here the navbar icons
+              />
             </Flex>
           </ScaleFade>
         </Box>
@@ -191,6 +206,11 @@ const InViewNavBar = () => {
   )
 }
 
+/**
+ * 
+ * @param param0 
+ * @returns Navbar icons 
+ */
 const NavIcons = ({...props}) => {
   const SwitchCart = useColorModeValue(shoppingCart, shoppingCartInv);
   const SwitchUser = useColorModeValue(userImg, userImgInv);
@@ -211,7 +231,10 @@ const NavIcons = ({...props}) => {
       // mt={'-60'}
       >
         <Box w={{base: '0', md: '8rem'}}> 
-          <Popover trigger={'hover'} placement={'bottom-end'}>
+          <Popover trigger={'hover'} placement={'bottom-end'}
+          // este Popover renderiza el submenu desplegado por cada ícono
+          // this Popover renderize the submenu icons displayed by every icon
+          >
             <Box 
             position={'relative'} 
             >
@@ -264,16 +287,28 @@ const NavIcons = ({...props}) => {
   )
 }
 
-const DesktopNav = ({...props}) => {
+
+/**
+ * 
+ * @param param0 
+ * @returns Desktop view menu
+ */
+const DesktopMenu = ({...props}) => {
   const linkColor = useColorModeValue('gray.600', 'gray.200');
   const linkHoverColor = useColorModeValue('gray.800', 'rgba(137, 200, 250, 0.95 )');
   const popoverContentBgColor = useColorModeValue('rgba(137, 200, 250, 0.95 )', 'gray.800');
 
   return (
-    <Stack direction={'row'} spacing={0} >
-      {NAV_ITEMS.map((navItem) => (
+    <Stack direction={'row'} spacing={0}>
+      {
+    // Recorremos el Array navItem declarado mas abajo para devolver por pantalla de escritorio sus valores usando
+    // iteration through navItem array declared at the end to returns on desktop display it values
+      NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label} >
-          <Popover trigger={'hover'} placement={'bottom-start'}>
+          <Popover trigger={'hover'} placement={'bottom-start'}
+          // Animación Popover de Chakra UI
+          // Chakra UI Popover animation
+          >
             <PopoverTrigger>
               <Box position={'relative'} ml={8} mt={56}>
               <Link
@@ -303,7 +338,7 @@ const DesktopNav = ({...props}) => {
                 minW={'sm'}>
                 <Stack>
                   {navItem.children.map((child) => (
-                    <DesktopSubNav key={child.label} {...child} />
+                    <DesktopSubmenu key={child.label} {...child} />
                   ))}
                 </Stack>
               </PopoverContent>
@@ -315,7 +350,14 @@ const DesktopNav = ({...props}) => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+/**
+ * 
+ * @param NavItem params 
+ * @returns desktop view submenu
+ */
+const DesktopSubmenu = ({ label, href, subLabel }: NavItem) => {
+  // Recibo los parametros previamente recorridos en DesktopMenu
+  // receive the params previously iterated on DesktopMenu
   return (
     <Link
       href={href}
@@ -350,21 +392,36 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   );
 };
 
-const MobileNav = () => {
+/**
+ * 
+ * @returns Mobile view navbar
+ */
+const MobileMenu = () => {
   return (
     <Stack
       bg={useColorModeValue('rgba(137, 200, 250, 0.95 )', 'gray.800')}
       p={4}
       display={{ md: 'none' }}>
-      {NAV_ITEMS.map((navItem) => (
-        <MobileNavItem key={navItem.label} {...navItem} />
+      {
+    // Recorremos el Array navItem declarado mas abajo para devolver por pantallas de móviles sus valores
+    // iteration through navItem array declared at the end to returns on mobile display it values
+      NAV_ITEMS.map((navItem) => (
+        <MobileSubmenu key={navItem.label} {...navItem} />
       ))}
     </Stack>
   );
 };
 
-const MobileNavItem = ({ label, children, href }: NavItem) => {
+/**
+ * 
+ * @param param0 
+ * @returns mobile nav
+ */
+const MobileSubmenu = ({ label, children, href }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure();
+
+  // Recibo los parametros previamente recorridos en MobileMenu
+  // receive the params previously iterated on MobileMenu
 
   return (
     <Stack spacing={4} onClick={children && onToggle}>
@@ -394,7 +451,10 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         )}
       </Flex>
 
-      <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
+      <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}
+          // funcionalidad Collapse de Chakra UI
+          // Chakra UI Collapse functionality
+      >
         <Stack
           mt={2}
           pl={4}
@@ -454,12 +514,6 @@ const NAV_ITEMS: Array<NavItem> = [
     href: '#',
   },
 ];
-
-
-// interface Users {
-//   name: string;
-//   password: string;
-// }
 
 interface NavItem {
   label: string;
