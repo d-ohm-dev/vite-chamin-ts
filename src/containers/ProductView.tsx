@@ -1,11 +1,8 @@
 import { Box, Grid, GridItem, useColorModeValue } from "@chakra-ui/react";
-// import Navbar from "../elements/ProductView/NavbarPV";
 import Navbar from "../elements/CommonElements/newNavBar";
-// import FlexView from "../elements/ProductView/ProductDetails";
 import Footer from "../elements/CommonElements/Footer";
 import ProductDetails from "../elements/ProductView/ProductDetails";
 import SimpleThreeColumns from "../elements/GalleryView/GalleryFeatures";
-// import PlacementExample from "../elements/PV/rollNav";
 
 
 const ProductView = () => (
@@ -19,7 +16,6 @@ const ProductView = () => (
     bg={useColorModeValue('linear-gradient( to bottom right, rgba(244, 244, 244, 1), rgb(137, 209, 253) )', 'linear-gradient( to bottom right, #0c4083, rgba(19, 29, 77, 0.94) )')}
     >
       <GridItem rowSpan={1} colSpan={1}>
-        {/* <PlacementExample/> */}
         <Navbar />
       </GridItem>
       <GridItem rowSpan={2} colSpan={1} >

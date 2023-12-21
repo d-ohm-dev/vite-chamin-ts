@@ -1,10 +1,7 @@
 import { Box, Grid, GridItem, useColorModeValue } from "@chakra-ui/react";
-// import Navbar from "../elements/ProductView/NavbarPV";
 import Navbar from "../elements/CommonElements/newNavBar";
-// import FlexView from "../elements/ProductView/ProductDetails";
 import Footer from "../elements/CommonElements/Footer";
 import Gallery from "../elements/GalleryView/ProductGallery";
-// import PlacementExample from "../elements/PV/rollNav";
 
 
 const ProductViewGallery = () =>{ 
