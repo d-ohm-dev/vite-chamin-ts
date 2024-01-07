@@ -266,7 +266,9 @@ const NavIcons = ({...props}) => {
                   </Link2>
                 </PopoverBody>
                 <PopoverFooter>
-                  Register
+                  <Link2 to= {'register'}>
+                    Register
+                  </Link2>
                 </PopoverFooter>
               </PopoverContent>
           </Popover>

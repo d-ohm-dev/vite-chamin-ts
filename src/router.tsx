@@ -7,37 +7,27 @@ import ProductViewGallery from "./containers/ProductViewGallery";
 // import LoggedNavbar from "./elements/CommonElements/LoggedNavBar";
 // import LoginView from "./elements/Loginterface/LoginView";
 import Basic from "./elements/Loginterface/LoginForm";
-// import RegisterForm from "./elements/Loginterface/RegisterForm";
+import RegisterForm from "./elements/Loginterface/RegisterForm";
 // import { notesLayoutLoader } from "./elements/Loginterface/loginLoader";
 import { populate } from "./models/db";
 // import Frontpage from "./containers/Frontpage";
-import { Root } from "./Root";
+// import { Root } from "./Root";
+import Landing from "./containers/LandingPage";
 
 populate(); //cargamos la data en el LocalStorage / charging the data on LocalStorage
 
 const router = createBrowserRouter([
   {
-    element: <Root/> ,
-    path: '/'
-    // children: [
-    //   { index: true, 
-    //     element: <Navigate to="/" /> },
-    //   {
-    //     path: '/',
-    //     element:
-    //   }
-
-    // ],
-    
+    index: true, element: <Landing/>
   },
   {
-    path: 'register',
-    // element: <RegisterForm/>,
-    // loader: notesLayoutLoader
+    path: '/register',
+    element: <RegisterForm/>,
   },
   {
-    path: 'login',
+    path: '/login',
     element:  <Basic/>,
+
   },
   {
     path: 'product-view',
@@ -52,8 +42,6 @@ const router = createBrowserRouter([
     element: <NotFound/>
     
   }
-
-
 ])
 
 export default router
