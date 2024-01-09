@@ -22,7 +22,7 @@ export default function NotFound(){
       </Text>
       <Text color={'gray.500'} mb={6}>
         {/* The page you&apos;re looking for does not seem to exist */}
-        La página que buscabas para que no existe
+        La página que buscabas parece que no existe
       </Text>
       <Link to={'/'}>
         <Button

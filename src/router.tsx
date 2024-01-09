@@ -10,32 +10,33 @@ import Basic from "./elements/Loginterface/LoginForm";
 import RegisterForm from "./elements/Loginterface/RegisterForm";
 // import { notesLayoutLoader } from "./elements/Loginterface/loginLoader";
 import { populate } from "./models/db";
+import { Root } from "./Root";
 // import Frontpage from "./containers/Frontpage";
 // import { Root } from "./Root";
-import Landing from "./containers/LandingPage";
 
 populate(); //cargamos la data en el LocalStorage / charging the data on LocalStorage
 
 const router = createBrowserRouter([
   {
-    index: true, element: <Landing/>
+    path: '/', element: <Root/>,
+    errorElement: <NotFound/>,
+  },
+  {
+    path: '/product-view',
+    element: <ProductViewGallery/>,
+  },
+  {
+    path: 'product-view/detail',
+    element: <ProductView/>
   },
   {
     path: '/register',
     element: <RegisterForm/>,
   },
   {
-    path: '/login',
+    path: 'login',
     element:  <Basic/>,
 
-  },
-  {
-    path: 'product-view',
-    element: <ProductViewGallery/>,
-  },
-  {
-    path: 'product-view/detail',
-    element: <ProductView/>
   },
   {
     path: '*',

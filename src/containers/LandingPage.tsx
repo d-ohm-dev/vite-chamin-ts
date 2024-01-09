@@ -5,7 +5,7 @@ import Cards from "../elements/FrontPage/Cards";
 import Footer from "../elements/CommonElements/Footer";
 import ChoosingPet from "../elements/FrontPage/ChoosingPet";
 
-const Frontpage = () => {
+const LandingPage = () => {
   return (
   <Box textAlign="center" fontSize="xl">
     <Grid
@@ -35,11 +35,9 @@ const Frontpage = () => {
       <GridItem rowSpan={5} colSpan={1} >
         <Footer/>
       </GridItem>
-
-
     </Grid>
   </Box>
   )
 }
 
-export default Frontpage
+export default LandingPage

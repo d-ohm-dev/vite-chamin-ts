@@ -261,12 +261,12 @@ const NavIcons = ({...props}) => {
                 minW={'2xs'}
               >
                 <PopoverBody>
-                  <Link2 to={'login'}>
+                  <Link2 to={'/login'}>
                     Login
                   </Link2>
                 </PopoverBody>
                 <PopoverFooter>
-                  <Link2 to= {'register'}>
+                  <Link2 to= {'/register'}>
                     Register
                   </Link2>
                 </PopoverFooter>
