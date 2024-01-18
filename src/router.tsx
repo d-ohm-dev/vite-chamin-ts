@@ -5,14 +5,15 @@ import NotFound from "./containers/Error404";
 import ProductView from "./containers/ProductView";
 import ProductViewGallery from "./containers/ProductViewGallery";
 // import LoggedNavbar from "./elements/CommonElements/LoggedNavBar";
-// import LoginView from "./elements/Loginterface/LoginView";
 import Basic from "./elements/Loginterface/LoginForm";
-import RegisterForm from "./elements/Loginterface/RegisterForm";
 // import { notesLayoutLoader } from "./elements/Loginterface/loginLoader";
 import { populate } from "./models/db";
 import { Root } from "./Root";
-// import Frontpage from "./containers/Frontpage";
-// import { Root } from "./Root";
+import { registerFormAction } from "./elements/Loginterface/registerAction";
+import Register from "./elements/Loginterface/RegisterForm";
+import { userDetailsLoader } from "./elements/Loginterface/loginLoader";
+import UserDetail from "./elements/Loginterface/UserDetails";
+import { userAction } from "./elements/Loginterface/userAction";
 
 populate(); //cargamos la data en el LocalStorage / charging the data on LocalStorage
 
@@ -31,7 +32,16 @@ const router = createBrowserRouter([
   },
   {
     path: '/register',
-    element: <RegisterForm/>,
+    element: <Register/>,
+    action: registerFormAction,
+  },
+  {
+    path: '/register/:userId',
+    element: <UserDetail/>,
+    loader: userDetailsLoader,
+    action: userAction
+    
+
   },
   {
     path: 'login',
