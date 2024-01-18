@@ -1,5 +1,5 @@
 import { redirect } from "react-router-dom";
-import { updateNote } from "../../models/db";
+import { updateUser } from "../../models/db";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export async function userAction({request, params}:any) {
@@ -10,7 +10,7 @@ export async function userAction({request, params}:any) {
   const email = formData.get("email");
   const password = formData.get("password");
 
-  await updateNote(userId, name, email, password);
+  await updateUser(userId, name, email, password);
 
   return redirect(`/regiter/${userId}?${searchParams}`);
 }
