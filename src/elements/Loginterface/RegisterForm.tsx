@@ -1,50 +1,3 @@
-// import { 
-//   Form, 
-//   // useLoaderData, 
-//   useLocation, 
-//   useSearchParams 
-// } from "react-router-dom";
-
-// export default function NoteForm() {
-//   const [searchParams] = useSearchParams();
-//   const {key} = useLocation(); 
-//   /*
-//    * En el caso que quisieramos usar alguna libreria como Formik para trabajar con formularios
-//    * podemos usar el hook "useSubmit" de RRD.
-//    * dentro del "onSubmit" de Formik, usamos el hook ya que este devuelve la data ya validada
-//    * @example 
-//    * let submit = useSubmit();
-//    * submit(data, {method: "post, action: "/notes/new"});
-//    */
-//   // const note = useLoaderData() // para traer los datos de la nota al editarla
-// //la "key" es el identificador unico de la locacion actual
-//   return (
-//   <Form method="post" action={`?${searchParams}`}>
-// {/* Usamos los "serachParams" acá también para decirle al "action"  del formulario 
-// que conserve los parametros en la URL aun cuando creo una nota nueva, teniendo en cuenta que una vez 
-// la creamos, automatcamente nos vamos a la URL de la nueva nota creada, ademas desde el "Action",
-// "notesFormAction" tambien darle acceso a la instancia de los "searchParams" */}
-//       <h2>Note form</h2>
-
-
-//       <label>
-//       Correo Electrónico
-
-//       <input type="text" name="title" required  key={key} />
-//       </label>
-
-//       <label>
-//       Contraseña
-//       <textarea name="body" required key={key} />
-//       </label>
-
-//       <button>Submit</button>
-
-//   </Form>
-
-//   );
-// }
-
 import logo from '../../assets/fotos/logo.png';
 import invlogo from '../../assets/fotos/invlogo.png';
 import { Formik, Field, Form } from "formik";
@@ -66,10 +19,6 @@ import {
   useSearchParams,
   useSubmit, 
 } from 'react-router-dom';
-
-
-
-
 
 export default function Register() {
   const SwitchImg = useColorModeValue(logo, invlogo)
