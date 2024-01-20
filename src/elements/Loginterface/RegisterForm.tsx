@@ -38,12 +38,12 @@ export default function Register() {
     bg={useColorModeValue('linear-gradient( to bottom right, rgba(244, 244, 244, 1), rgb(137, 209, 253) )!important', 'linear-gradient( to bottom right, #0c4083, rgba(19, 29, 77, 0.94) )!important')}
     align="center" 
     justify="center" 
-    h="100vh" 
+    // h="100vh" 
     >
       <Link to={'/'}>  
-        <Img src={SwitchImg} alt="Logo" maxH='135%' maxW='135%' ml={{base: -500}} mt={{base: -30}} />
+        <Img src={SwitchImg} alt="Logo" maxH='16%' maxW='16%' mr={{base: 40}} mt={{base: 12}} mb={{base: 0}} />
       </Link>
-      <Box bg={bgBoxColor} p={16} rounded="md" w={96}>
+      <Box bg={bgBoxColor} p={16} rounded="md" w={96} mb={80}>
         <Formik
           initialValues={{
             username: "",

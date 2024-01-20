@@ -28,12 +28,12 @@ export default function Basic() {
     bg={useColorModeValue('linear-gradient( to bottom right, rgba(244, 244, 244, 1), rgb(137, 209, 253) )!important', 'linear-gradient( to bottom right, #0c4083, rgba(19, 29, 77, 0.94) )!important')}
     align="center" 
     justify="center" 
-    h="100vh" 
+    // h="100vh" 
     >
       <Link to={'/'}>  
-        <Img src={SwitchImg} alt="Logo" maxH='175%' maxW='175%' ml={{base: -500}} mt={{base: -20}} />
+        <Img src={SwitchImg} alt="Logo" maxH='18%' maxW='18%' ml={{base: 2}} mt={{base: 12}} mb={{base: 0}} />
       </Link>
-      <Box bg={bgBoxColor} p={6} rounded="md" w={64}>
+      <Box bg={bgBoxColor} p={6} rounded="md" w={64} mb={80}>
         <Formik
           initialValues={{
             email: "",
