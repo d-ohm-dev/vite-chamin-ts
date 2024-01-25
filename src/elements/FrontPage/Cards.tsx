@@ -8,27 +8,18 @@ import cardImg3 from '../../assets/fotos/Acana/IMG_20211220_115121_368.jpg'
 import cardImg4 from '../../assets/fotos/Acana/IMG_20211220_115121_697.jpg'
 
 import {
-  // Flex,
-  // Circle,
   Box,
-  // Image,
   Badge,
   useColorModeValue,
-  // Icon,
-  // chakra,
-  // Tooltip,
   Grid,
   Container,
   GridItem,
-  // VStack,
   HStack,
   Center,
   Img,
 } from '@chakra-ui/react'
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
-// import { FiShoppingCart } from 'react-icons/fi'
-// import { StarIcon } from '@chakra-ui/icons'
 
 const contentData = [ 
   {
@@ -195,12 +186,13 @@ function ProductAddToCart() {
 
   return (
   
-    <Center as={Container} maxW="full" mt={4} >
+    <Center as={Container} maxW="full" mt={2} >
       <Grid
         templateColumns={{base: 'repeat(auto-fill, 1fr)'}}
+
         gap={{ base: 2}}
       >
-        <HStack spacing={4}>
+        <HStack spacing={4} overflow={'hidden'}>
           {
             contentData.map((data, i) => (
             

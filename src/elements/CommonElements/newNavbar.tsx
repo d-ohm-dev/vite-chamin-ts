@@ -49,7 +49,7 @@ export default function Navbar() {
       <ColorModeSwitcher 
       display='flex' 
       position='relative' 
-      left='93%' 
+      left='90%'
       zIndex='overlay' 
       />
       <InViewNavBar />
@@ -116,20 +116,25 @@ const InViewNavBar = () => {
             >
               <Stack align={aligNav}>
                 <Link2 to={'/'}>  
-                  <Image src={SwitchLogo} alt="Logo"   mt={{base: 1, md: 2}} boxSize={20} ml={6}/>
+                  <Image 
+                  src={SwitchLogo} 
+                  alt="Logo"   
+                  mt={{base: 2}} 
+                  boxSize={{ base: 20 }} 
+                  />
                 </Link2>
               </Stack> 
               <Flex
               // Aca el menu de opciones
               // Here the option menu 
               display={{ base: 'none', md: 'flex' }} 
-              alignItems='end' 
-              top={{base: -50 , md: -200}} 
+              // alignItems='end' 
+              top={{ md: -150}} 
               pos={'absolute'} 
-              left={80}
+              left={40}
               >
-                <DesktopMenu  fontSize={'0.97rem'} />
-                <NavIcons ml={150} mb={-4}/>
+                <DesktopMenu  fontSize={'xs'} />
+                <NavIcons />
               </Flex>
             </Box>
 
@@ -142,7 +147,7 @@ const InViewNavBar = () => {
           delay={0.5} 
           >
             <Flex
-            bg='inherit'
+            // bg='inherit'
             color={colorFlex}
             ref={ref}
             borderBottom={1}
@@ -172,10 +177,16 @@ const InViewNavBar = () => {
               >
                 <Stack display='inline' align={aligNav}>
                     <Box position='relative' 
-                    p={10}
+                    top={4}
+                    left={{md: 5, lg: 10}}
                     >
                       <Link2 to={'/'}>  
-                        <Image src={SwitchLogo} alt="Logo"   mt={{base: 1}} boxSize={28} />
+                        <Image 
+                        src={SwitchLogo} 
+                        alt="Logo"  
+                        boxSize={{ base:20, md: 20}} 
+                        mb={{ base: 16 , md: 16}}
+                        />
                       </Link2>
                     </Box>
                 </Stack>
@@ -189,11 +200,12 @@ const InViewNavBar = () => {
                 pos={'relative'} 
                 left={28}
                 >
-                  <DesktopMenu  fontSize={'lg'}/>
+                  <DesktopMenu />
                 </Flex>
                 
               </Flex>
-              <NavIcons mr={20} 
+              <NavIcons 
+              mr={{base: 28, md: 20}} 
               // Aca los íconos de la barra de navegación
               // here the navbar icons
               />
@@ -222,29 +234,30 @@ const NavIcons = ({...props}) => {
       <Stack
     // Acá renderizamos los iconos de usuario y carrito
     // Here render the user and shopping cart icons
-      flex={{ base: 1, md: 0 }}
-      justify={'flex-end'}
+      // flex={{ base: 1, md: 0 }}
+      // justify={'flex-end'}
       direction={'row'}
       spacing={0}
+      position={'relative'}
+      left={{md: 10, lg: 0}} 
       {...props}
       // mr={20}
       // mt={'-60'}
       >
-        <Box w={{base: '0', md: '8rem'}}> 
+        <Box 
+        w={{ base: 9}} 
+        mb={{md: 8, lg: 10}}
+        > 
           <Popover trigger={'hover'} placement={'bottom-end'}
           // este Popover renderiza el submenu desplegado por cada ícono
           // this Popover renderize the submenu icons displayed by every icon
           >
-            <Box 
-            position={'relative'} 
-            >
+            <Box>
               <Link>
                 <PopoverTrigger>
                   <Image
                   display={{ base: 'none', md: 'inline-flex' }}
-                  w={'10'}
                   src= {SwitchUser}
-                  // mt={{base: -20}}
                   alt='Login/Logon'
                   _hover={{color: linkHoverColor}}
                       />
@@ -277,7 +290,7 @@ const NavIcons = ({...props}) => {
           <Link2 to={'/'}>
             <Image
             display={{ base: 'none', md: 'inline-flex' }}
-              w={'10'}
+              w={'9'}
               src= {SwitchCart}
               // mt={{base: -20}}
               alt='Login/Logon'/>
@@ -301,44 +314,56 @@ const DesktopMenu = ({...props}) => {
   const popoverContentBgColor = useColorModeValue('rgba(137, 200, 250, 0.95 )', 'gray.800');
 
   return (
-    <Stack direction={'row'} spacing={0}>
+    <Stack 
+    direction={'row'} 
+    spacing={{base: 0, md: 4, lg: 18, xl: 20}} 
+    ml={{base: 0 , md: 5, lg: 18, xl: 32 }}
+    >
       {
     // Recorremos el Array navItem declarado mas abajo para devolver por pantalla de escritorio sus valores usando
     // iteration through navItem array declared at the end to returns on desktop display it values
       NAV_ITEMS.map((navItem) => (
-        <Box key={navItem.label} >
+        <Box key={navItem.label}  >
           <Popover trigger={'hover'} placement={'bottom-start'}
           // Animación Popover de Chakra UI
           // Chakra UI Popover animation
           >
             <PopoverTrigger>
-              <Box position={'relative'} ml={8} mt={56}>
+              <Box position={'relative'} top={44} right={{md: 16, lg: 0}} >
               <Link
-                // 
-                p={1}
+                letterSpacing={{ md: 'tight', lg: 'wider'}}
+                fontFamily={'fantasy'}
+
                 href={navItem.href ?? '#'}
-                // fontSize={'lg'}
-                color={linkColor}
                 _hover={{
-                  textDecoration: 'none',
+                  // textDecoration: 'none',
                   color: linkHoverColor,
                 }}
                 {...props}
                 >
+                <Text
+                letterSpacing={{ md: 'tight', lg: 'wider'}}
+                fontSize={{ base: 10, md: 14, lg: 16}}
+                fontFamily={'fantasy'}
+                color={linkColor}
+                >
                 {navItem.label}
+                </Text>
               </Link>
               </Box>
             </PopoverTrigger>
 
             {navItem.children && (
               <PopoverContent
-                border={0}
+                // border={0}
                 boxShadow={'xl'}
                 bg={popoverContentBgColor}
-                p={4}
+                // p={8}
+                alignItems={'center'}
                 rounded={'xl'}
-                minW={'sm'}>
-                <Stack>
+                // minW={'s'}
+                >
+                <Stack alignItems={'center'} >
                   {navItem.children.map((child) => (
                     <DesktopSubmenu key={child.label} {...child} />
                   ))}
@@ -365,7 +390,7 @@ const DesktopSubmenu = ({ label, href, subLabel }: NavItem) => {
       href={href}
       role={'group'}
       display={'block'}
-      p={2}
+      // p={2}
       rounded={'md'}
       _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}>
       <Stack direction={'row'} align={'center'}>
@@ -426,9 +451,9 @@ const MobileSubmenu = ({ label, children, href }: NavItem) => {
   // receive the params previously iterated on MobileMenu
 
   return (
-    <Stack spacing={4} onClick={children && onToggle}>
+    <Stack  onClick={children && onToggle}>
       <Flex
-        py={2}
+        // py={2}
         as={Link}
         href={href ?? '#'}
         justify={'space-between'}
@@ -459,7 +484,7 @@ const MobileSubmenu = ({ label, children, href }: NavItem) => {
       >
         <Stack
           mt={2}
-          pl={4}
+          // pl={4}
           borderLeft={1}
           borderStyle={'solid'}
           borderColor={useColorModeValue('gray.200', 'gray.700')}

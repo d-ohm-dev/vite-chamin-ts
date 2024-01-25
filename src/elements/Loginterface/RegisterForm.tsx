@@ -41,7 +41,7 @@ export default function Register() {
     // h="100vh" 
     >
       <Link to={'/'}>  
-        <Img src={SwitchImg} alt="Logo" maxH='16%' maxW='16%' mr={{base: 40}} mt={{base: 12}} mb={{base: 0}} />
+        <Img src={SwitchImg} alt="Logo" maxH='12%' maxW='12%' mr={{base: 60}} mt={{base: 12}}  />
       </Link>
       <Box bg={bgBoxColor} p={16} rounded="md" w={96} mb={80}>
         <Formik

@@ -7,10 +7,12 @@ import ChoosingPet from "../elements/FrontPage/ChoosingPet";
 
 const LandingPage = () => {
   return (
-  <Box textAlign="center" fontSize="xl">
+  <Box textAlign="center" >
     <Grid
     // h='min-content'
-    templateRows='repeat(4, 1fr, auto)'
+    templateRows={{base: 'repeat(2, 1fr, auto)', md: 'repeat(2, 1fr, auto)', lg: 'repeat(4, 1fr, auto)'}}
+    // autoRows={'min-content'}
+
     templateColumns='repeat(1, 100%)'
     gap={0}
     bg={useColorModeValue('linear-gradient( to bottom right, rgba(244, 244, 244, 1), rgb(137, 209, 253) )', 'linear-gradient( to bottom right, #0c4083, rgba(19, 29, 77, 0.94) )')}
