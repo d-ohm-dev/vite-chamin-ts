@@ -108,9 +108,9 @@ export default function Basic() {
                 </Field>
                 <Button 
                 type="submit" 
-                bg={'pink.400'}
+                bg={'#24b208'}
                 _hover={{
-                  bg: 'pink.300',
+                  bg: '#23cf00',
                 }}
                 width="full"
                 >

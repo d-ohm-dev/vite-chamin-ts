@@ -63,7 +63,7 @@ export default function Register() {
           {({ handleSubmit, errors, touched }) => (
             <Form onSubmit={handleSubmit}>
               <VStack spacing={4} align="flex-start">
-              <FormControl isInvalid={!!errors.email && touched.email}>
+              <FormControl isInvalid={!!errors.username && touched.username}>
                   <FormLabel color={textColor} >Nombre de Usuario</FormLabel>
                   <Field
                     as={Input}
@@ -152,10 +152,14 @@ export default function Register() {
                 </Field>
                 <Button 
                 type="submit" 
-                bg={'pink.400'}
+                // bg={'#dc1e1e'}
+                bg={'#24b208'}
                 _hover={{
-                  bg: 'pink.300',
-                }}
+                  // bg: '#ff0000fe',
+                  bg: '#23cf00',
+                }
+                
+              }
                 width="full"
                 >
                   Registrarse

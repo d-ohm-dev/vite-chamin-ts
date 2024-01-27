@@ -4,7 +4,7 @@ import invlogo from '../../assets/fotos/invlogo.png';
 import userImg from '../../assets/icons/usuario3.png';
 import userImgInv from '../../assets/icons/usuario3inv.png';
 import shoppingCart from '../../assets/icons/Copia de carrito-de-compras.png'
-import shoppingCartInv from '../../assets/icons/Copia de carrito-de-compras-inv2.png'
+import shoppingCartInv from '../../assets/icons/Copia de carrito-de-compras_inv3.png'
 import {
   Box,
   Flex,
@@ -288,6 +288,7 @@ const NavIcons = ({...props}) => {
         </Box>
         <Box w={{base: '0', md: '8rem'}}>
           <Link2 to={'/'}>
+
             <Image
             display={{ base: 'none', md: 'inline-flex' }}
               w={'9'}
@@ -331,9 +332,6 @@ const DesktopMenu = ({...props}) => {
             <PopoverTrigger>
               <Box position={'relative'} top={44} right={{md: 16, lg: 0}} >
               <Link
-                letterSpacing={{ md: 'tight', lg: 'wider'}}
-                fontFamily={'fantasy'}
-
                 href={navItem.href ?? '#'}
                 _hover={{
                   // textDecoration: 'none',
@@ -342,9 +340,9 @@ const DesktopMenu = ({...props}) => {
                 {...props}
                 >
                 <Text
-                letterSpacing={{ md: 'tight', lg: 'wider'}}
-                fontSize={{ base: 10, md: 14, lg: 16}}
-                fontFamily={'fantasy'}
+                letterSpacing={{ md: 'wide', lg: 'tighter'}}
+                fontSize={{ base: 12, md: 14, lg: 16}}
+                // fontFamily={'body'}
                 color={linkColor}
                 >
                 {navItem.label}
