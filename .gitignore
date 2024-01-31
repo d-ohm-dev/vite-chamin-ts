@@ -21,6 +21,7 @@ dist-ssr
 .git
 .prettierrc
 .eslintrc.cjs
+.gitignore
 
 # Editor directories and files
 .vscode/*
@@ -36,4 +37,6 @@ dist-ssr
 src/assets/icons/fontawesome-free-6.1.1-web
 src/assets/icons/Search-30-60px
 src/assets/icons/Search-32-64px
+src/elements/CustomHooks
+
 

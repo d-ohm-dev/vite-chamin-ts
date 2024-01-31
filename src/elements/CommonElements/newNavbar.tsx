@@ -87,7 +87,7 @@ const InViewNavBar = () => {
     */
     <Box>
       <InView 
-      rootMargin={'20%'} 
+      // rootMargin={'20%'} 
       initialInView={true} 
       // onChange={(inView) => console.log('Inview:', inView)}
       threshold={0.2}
@@ -104,8 +104,9 @@ const InViewNavBar = () => {
             in={!inView}
             offsetY={40}
             offsetX={15}
-            delay={0.3}
+            // delay={0.3}
             reverse={true}
+            unmountOnExit
             >
             <Box 
             position='fixed'
@@ -175,21 +176,21 @@ const InViewNavBar = () => {
               flex={{ base: 1 }} 
               justify={{ base: 'center', md: 'start' }} 
               >
-                <Stack display='inline' align={aligNav}>
+                {/* <Stack display='inline' align={aligNav}> */}
                     <Box position='relative' 
                     top={4}
                     left={{md: 5, lg: 10}}
                     >
-                      <Link2 to={'/'}>  
+                      <Link2 to={'/'} >  
                         <Image 
                         src={SwitchLogo} 
                         alt="Logo"  
-                        boxSize={{ base:20, md: 20}} 
-                        mb={{ base: 16 , md: 16}}
+                        boxSize={{ base:20}}  
+                        mb={{ base: 16 }}
                         />
                       </Link2>
                     </Box>
-                </Stack>
+                {/* </Stack> */}
 
                 <Flex
               // Aca el menu de opciones
@@ -321,7 +322,7 @@ const DesktopMenu = ({...props}) => {
     ml={{base: 0 , md: 5, lg: 18, xl: 32 }}
     >
       {
-    // Recorremos el Array navItem declarado mas abajo para devolver por pantalla de escritorio sus valores usando
+    // Recorremos el Array navItem declarado mas abajo para devolver por pantalla de escritorio sus valores
     // iteration through navItem array declared at the end to returns on desktop display it values
       NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}  >
