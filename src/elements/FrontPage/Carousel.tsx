@@ -81,7 +81,7 @@ export default function Carousel() {
 
 <GridItem
   position='relative'
-  height='max'
+  // height='min'
   width='full'
   overflow='hidden'>
   {/* CSS files for react-slick */}
@@ -129,13 +129,15 @@ export default function Carousel() {
       <Box
         // mt='16'
         key={index}
-        height='max'
-        maxW='100%'
+        // height='min'
+        // maxW='100%'
         position="relative"
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
         backgroundSize={{base: 'contain', md: 'contain', lg: 'cover'}}
-        backgroundImage={`url(${card.image})`}>
+        backgroundImage={`url(${card.image})`}
+        mt={{base: -44, md: -24, lg: 0}}
+        >
         
         {/* This is the block you need to change, to customize the caption */}
 

@@ -48,9 +48,8 @@ export default function Navbar() {
     <Box top={0} >
       <ColorModeSwitcher 
       display='flex' 
-      position='relative' 
-      left='90%'
-      zIndex='overlay' 
+      zIndex='overlay'
+      float={'inline-end'}
       />
       <InViewNavBar />
       <Collapse in={isOpen} animateOpacity>
@@ -85,7 +84,7 @@ const InViewNavBar = () => {
     I implement "Inview" from "react-intersection-oserver" to detect the visibility of my "Navbar" within the "ScaleFade", 
     when it stops being visible it causes the "drop down bar" to be displayed and vice versa
     */
-    <Box>
+    <Box mt={5}>
       <InView 
       // rootMargin={'20%'} 
       initialInView={true} 
@@ -104,8 +103,8 @@ const InViewNavBar = () => {
             in={!inView}
             offsetY={40}
             offsetX={15}
-            // delay={0.3}
-            reverse={true}
+            delay={0.3}
+            // reverse={true}
             unmountOnExit
             >
             <Box 
@@ -191,7 +190,8 @@ const InViewNavBar = () => {
                       </Link2>
                     </Box>
                 {/* </Stack> */}
-
+                {/* <DesktopMenu /> */}
+                {/* Ver aca  */}
                 <Flex
               // Aca el menu de opciones
               // Here the option menu 
@@ -201,12 +201,12 @@ const InViewNavBar = () => {
                 pos={'relative'} 
                 left={28}
                 >
-                  <DesktopMenu />
+                  <DesktopMenu/>
                 </Flex>
                 
               </Flex>
               <NavIcons 
-              mr={{base: 28, md: 20}} 
+              mr={{ md: 5, lg: 28}} 
               // Aca los íconos de la barra de navegación
               // here the navbar icons
               />
@@ -235,15 +235,13 @@ const NavIcons = ({...props}) => {
       <Stack
     // Acá renderizamos los iconos de usuario y carrito
     // Here render the user and shopping cart icons
-      // flex={{ base: 1, md: 0 }}
-      // justify={'flex-end'}
+      flex={{ base: 1, md: 0 }}
+      justify={'flex-end'}
       direction={'row'}
       spacing={0}
       position={'relative'}
       left={{md: 10, lg: 0}} 
       {...props}
-      // mr={20}
-      // mt={'-60'}
       >
         <Box 
         w={{ base: 9}} 

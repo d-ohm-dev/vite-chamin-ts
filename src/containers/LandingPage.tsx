@@ -17,8 +17,8 @@ const LandingPage = () => {
     gap={0}
     bg={useColorModeValue('linear-gradient( to bottom right, rgba(244, 244, 244, 1), rgb(137, 209, 253) )', 'linear-gradient( to bottom right, #0c4083, rgba(19, 29, 77, 0.94) )')}
     >
-      <GridItem rowSpan={1} colSpan={1}>
-        <Navbar/>
+      <GridItem rowSpan={1} colSpan={1} >
+        <Navbar height={'40'}/>
       </GridItem>
 
 
