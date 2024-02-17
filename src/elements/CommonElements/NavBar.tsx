@@ -33,7 +33,7 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import { Link as Link2 } from "react-router-dom";
-import ColorModeSwitcher from "../FrontPage/ColorModeSwitcher";
+import ColorModeSwitcher from "../LandingPage/ColorModeSwitcher";
 import { InView } from "react-intersection-observer";
 
 /**
@@ -99,14 +99,12 @@ const InViewNavBar = () => {
               // This "Slidefade" renders the effect of "fixed" dropdown bar when scroll down
               in={!inView}
               offsetY={40}
-              offsetX={15}
               delay={0.3}
-              // reverse={true}
               unmountOnExit
             >
               <Box
                 position="fixed"
-                width={"full"}
+                width={{ base: "full" }}
                 bg={fixedNavBg}
                 zIndex={"sticky"}
                 top={0}
