@@ -167,6 +167,7 @@ const InViewNavBar = () => {
                     variant={"ghost"}
                     aria-label={"Toggle Navigation"}
                   />
+                  {isOpen && <MobileMenu />}
                 </Flex>
 
                 <Flex
