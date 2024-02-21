@@ -124,12 +124,15 @@ const InViewNavBar = () => {
                   // Here the option menu
                   display={{ base: "none", md: "flex" }}
                   // alignItems='end'
-                  top={{ md: -150 }}
+                  top={{ md: -165 }}
                   pos={"absolute"}
-                  left={40}
+                  left={44}
                 >
-                  <DesktopMenu fontSize={"xs"} />
-                  <NavIcons />
+                  <DesktopMenu
+                    fontSize={"xs"}
+                    ml={{ md: 16, lg: 20, xl: 10 }}
+                  />
+                  <NavIcons mt={{ md: 48 }} ml={{ md: 1, lg: 52 }} />
                 </Flex>
               </Box>
             </SlideFade>
@@ -177,12 +180,16 @@ const InViewNavBar = () => {
                   justify={{ base: "center", md: "start" }}
                 >
                   {/* <Stack display='inline' align={aligNav}> */}
-                  <Box position="relative" top={4} left={{ md: 5, lg: 10 }}>
+                  <Box
+                    position="relative"
+                    top={4}
+                    left={{ md: 5, lg: 10, xl: 20 }}
+                  >
                     <Link2 to={"/"}>
                       <Image
                         src={SwitchLogo}
                         alt="Logo"
-                        boxSize={{ base: 20 }}
+                        boxSize={{ base: 24 }}
                         mb={{ base: 16 }}
                       />
                     </Link2>
@@ -197,13 +204,14 @@ const InViewNavBar = () => {
                     // alignItems='end'
                     top={{ base: -50, md: -130 }}
                     pos={"relative"}
-                    left={28}
+                    left={{ md: 28 }}
                   >
-                    <DesktopMenu />
+                    <DesktopMenu mr={{ lg: 24, xl: 16, "2xl": 36 }} />
                   </Flex>
                 </Flex>
                 <NavIcons
-                  mr={{ md: 5, lg: 28 }}
+                  // mr={{ md: 0 }}
+                  mt={{ lg: 5 }}
                   // Aca los íconos de la barra de navegación
                   // here the navbar icons
                 />

@@ -21,7 +21,6 @@ import { Link, useLocation } from 'react-router-dom';
       color="current"
       marginLeft="2"
       onClick={toggleColorMode}
-      // onPointerUp={()=> window.location.reload()}
 
       icon={<SwitchIcon />}
       {...props}
