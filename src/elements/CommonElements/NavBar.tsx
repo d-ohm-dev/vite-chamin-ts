@@ -4,7 +4,7 @@ import invlogo from "../../assets/fotos/invlogo.png";
 import userImg from "../../assets/icons/usuario3.png";
 import userImgInv from "../../assets/icons/usuario3inv.png";
 import shoppingCart from "../../assets/icons/Copia de carrito-de-compras.png";
-import shoppingCartInv from "../../assets/icons/Copia de carrito-de-compras_inv3.png";
+import shoppingCartInv from "../../assets/icons/Copia de carrito-de-comprasNew.png";
 import {
   Box,
   Flex,
@@ -35,6 +35,7 @@ import {
 import { Link as Link2 } from "react-router-dom";
 import ColorModeSwitcher from "../LandingPage/ColorModeSwitcher";
 import { InView } from "react-intersection-observer";
+import { memo } from "react";
 
 /**
  * @function default component
@@ -61,12 +62,13 @@ export default function Navbar() {
  *
  */
 
-const InViewNavBar = () => {
+const InViewNavBar = memo(() => {
   const { isOpen, onToggle } = useDisclosure();
   const SwitchLogo = useColorModeValue(logo, invlogo);
   const fixedNavBg = useColorModeValue(
     "linear-gradient( to bottom right, rgba(244, 244, 244, 1), rgb(137, 209, 253) )",
     "linear-gradient( to bottom right, #0c4083, rgba(19, 29, 77, 0.94) )"
+    // "linear-gradient( to bottom right, #0d2430, rgba(20, 20, 20, 0.94) )"
   );
   const colorFlex = useColorModeValue("gray.600", "rgba(137, 200, 250, 0.95 )");
   const borderColorFlex = useColorModeValue("gray.200", "gray.900");
@@ -222,14 +224,14 @@ const InViewNavBar = () => {
       </InView>
     </Box>
   );
-};
+});
 
 /**
  *
  * @param param0
  * @returns Navbar icons
  */
-const NavIcons = ({ ...props }) => {
+function NavIcons({ ...props }) {
   const SwitchCart = useColorModeValue(shoppingCart, shoppingCartInv);
   const SwitchUser = useColorModeValue(userImg, userImgInv);
   const popoverBgColor = useColorModeValue(
@@ -305,7 +307,7 @@ const NavIcons = ({ ...props }) => {
       </Stack>
     </>
   );
-};
+}
 
 /**
  *
