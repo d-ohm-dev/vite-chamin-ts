@@ -6,7 +6,7 @@ import Gallery from "../elements/GalleryView/ProductGallery";
 const ProductViewGallery = () => {
   return (
     // textAlign="center" fontSize="xl"
-    <Box textAlign="center" fontSize="xl">
+    <Box textAlign="center" fontSize="xl" overflow={"clip"}>
       <Grid
         h="8xl"
         templateRows="repeat(3)"

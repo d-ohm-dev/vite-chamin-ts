@@ -92,7 +92,7 @@ function Rating({ rating, numReviews }: RatingProps) {
           );
         })}
       <Box as="span" ml="2" color="gray.600" fontSize="xs">
-        {numReviews} review{numReviews > 1 && "s"}
+        {numReviews} review{numReviews > 1 && "s"}H
       </Box>
     </Box>
   );
@@ -187,73 +187,91 @@ function ProductAddToCart() {
   // )
 
   return (
-    <Center as={Container} maxW="full" mt={2}>
-      <Grid
-        templateColumns={{ base: "repeat(auto-fill, 1fr)" }}
-        gap={{ base: 2 }}
-      >
-        <Box>
-          <HStack
-            spacing={4}
-            overflow={"hidden"}
-            overscrollBehaviorX={{ base: "contain" }}
+    <Box
+      overflowX={"auto"}
+      width={{ base: "auto", lg: "full" }}
+      className="scrollcard"
+    >
+      <HStack spacing={4}>
+        <Center as={Container} maxW="full" mt={2}>
+          <Grid
+            templateColumns={{ base: "repeat(auto-fill, 1fr)" }}
+            gap={{ base: 2 }}
           >
-            {contentData.map((data, i) => (
-              <GridItem colSpan={i + 1} key={i} minH={{ base: "full" }}>
-                <Link to={"/product-view"}>
-                  <Img
-                    src={data.imageURL}
-                    alt={"Picture of" + data.name}
-                    key={i}
-                  />
-                  <Box p="4" bg={colorMod1}>
-                    <Box display="flex" alignItems="baseline">
-                      <Badge borderRadius="full" px="2" colorScheme="teal">
-                        {data.isNew ? "Nuevo" : "Mas Vendido"}
-                      </Badge>
-                      {/* <Box
-                      color='gray.500'
-                      fontWeight='semibold'
-                      letterSpacing='wide'
-                      fontSize='xs'
-                      textTransform='uppercase'
-                      ml='2'
-                    >
-                      {property.beds} beds &bull; {propertyhs} baths 
-                  </Box>             */}
-                    </Box>
-                    <Box
-                      mt="1"
-                      fontWeight="semibold"
-                      as="h4"
-                      lineHeight="tight"
-                      noOfLines={2}
-                      color={colorMod2}
-                    >
-                      {data.label} <br /> {data.name}
-                    </Box>
-
-                    <Box>
-                      {data.price.toFixed(2)}
-                      <Box as="span" color="gray.600" fontSize="sm">
-                        / $
-                      </Box>
-                    </Box>
-
-                    <Box display="flex" mt="2" alignItems="center">
-                      <Rating
-                        rating={data.rating}
-                        numReviews={data.numReviews}
+            <Box
+              position={"relative"}
+              left={{ base: 40, md: 0 }}
+              w={{
+                base: "container.md",
+                lg: "container.lg",
+                xl: "full",
+              }}
+            >
+              <HStack
+                spacing={4}
+                overscrollBehaviorX={{ base: "contain" }}
+                alignItems={"flex-end"}
+                mr={{ base: 5, lg: 1 }}
+                ml={{ md: 3, lg: 3 }}
+              >
+                {contentData.map((data, i) => (
+                  <GridItem colSpan={i + 1} key={i} minH={{ base: "full" }}>
+                    <Link to={"/product-view"}>
+                      <Img
+                        src={data.imageURL}
+                        alt={"Picture of" + data.name}
+                        key={i}
                       />
-                    </Box>
-                  </Box>
-                </Link>
-              </GridItem>
-            ))}
-          </HStack>
-        </Box>
-      </Grid>
-    </Center>
+                      <Box p="4" bg={colorMod1}>
+                        <Box display="flex" alignItems="baseline">
+                          <Badge borderRadius="full" px="2" colorScheme="teal">
+                            {data.isNew ? "Nuevo" : "Mas Vendido"}
+                          </Badge>
+                          {/* <Box
+                        color='gray.500'
+                        fontWeight='semibold'
+                        letterSpacing='wide'
+                        fontSize='xs'
+                        textTransform='uppercase'
+                        ml='2'
+                      >
+                        {property.beds} beds &bull; {propertyhs} baths 
+                    </Box>             */}
+                        </Box>
+                        <Box
+                          mt="1"
+                          fontWeight="semibold"
+                          as="h4"
+                          lineHeight="tight"
+                          noOfLines={2}
+                          color={colorMod2}
+                        >
+                          {data.label} <br /> {data.name}
+                        </Box>
+
+                        <Box>
+                          {data.price.toFixed(2)}
+                          <Box as="span" color="gray.600" fontSize="sm">
+                            / $
+                          </Box>
+                        </Box>
+
+                        <Box display="flex" mt="2" alignItems="center">
+                          <Rating
+                            rating={data.rating}
+                            numReviews={data.numReviews}
+                          />
+                        </Box>
+                      </Box>
+                    </Link>
+                  </GridItem>
+                ))}
+              </HStack>
+            </Box>
+          </Grid>
+        </Center>
+      </HStack>
+    </Box>
   );
 }
 

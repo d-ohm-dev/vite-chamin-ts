@@ -7,7 +7,7 @@ import ChoosingPet from "../elements/LandingPage/ChoosingPet";
 
 const LandingPage = () => {
   return (
-    <Box textAlign="center">
+    <Box textAlign="center" overflow={"clip"}>
       <Grid
         // h='min-content'
         templateRows={{

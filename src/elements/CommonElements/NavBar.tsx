@@ -47,7 +47,7 @@ export default function Navbar() {
 
   return (
     <Box top={0}>
-      <ColorModeSwitcher display="flex" zIndex="overlay" float={"inline-end"} />
+      <ColorModeSwitcher float={"inline-end"} />
       <InViewNavBar />
       <Collapse in={isOpen} animateOpacity>
         <MobileMenu />
@@ -130,10 +130,7 @@ const InViewNavBar = memo(() => {
                   pos={"absolute"}
                   left={44}
                 >
-                  <DesktopMenu
-                    fontSize={"xs"}
-                    ml={{ md: 16, lg: 20, xl: 10 }}
-                  />
+                  <DesktopMenu fontSize={"xs"} ml={{ md: 16, xl: 10 }} />
                   <NavIcons mt={{ md: 48 }} ml={{ md: 1, lg: 52 }} />
                 </Flex>
               </Box>

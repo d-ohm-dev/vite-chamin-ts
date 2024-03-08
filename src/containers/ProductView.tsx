@@ -6,7 +6,7 @@ import SimpleThreeColumns from "../elements/GalleryView/GalleryFeatures";
 
 const ProductView = () => (
   // textAlign="center" fontSize="xl"
-  <Box textAlign="center" fontSize="xl">
+  <Box textAlign="center" fontSize="xl" overflow={"clip"}>
     <Grid
       h="8xl"
       templateRows="repeat(4, 1fr, auto)"
