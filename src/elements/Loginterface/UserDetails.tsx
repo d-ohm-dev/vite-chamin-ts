@@ -1,11 +1,12 @@
 import { Box } from "@chakra-ui/react";
-import { 
-  // Form, 
+import {
+  // Form,
   // Link,
-  useLoaderData, 
+  useLoaderData,
   // useSearchParams
- } from "react-router-dom";
+} from "react-router-dom";
 import { UserID } from "../../models/db";
+import Welcome from "./Welcome";
 
 export default function UserDetail() {
   /**
@@ -15,16 +16,16 @@ export default function UserDetail() {
    */
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const user: Record<string, any> = useLoaderData() as UserID
+  const user: Record<string, any> = useLoaderData() as UserID;
 
   // Mas acerca de  "useSearchParams": https://developer.mozilla.org/es/docs/Web/API/URLSearchParams
   // const [searchParams] = useSearchParams();
 
-
-
   return (
     <Box>
       Welcome {user.name}!
+      <br />
+      <Welcome />
     </Box>
   );
 }
