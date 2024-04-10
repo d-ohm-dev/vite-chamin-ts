@@ -16,7 +16,8 @@ import { memo } from "react";
 import { InView } from "react-intersection-observer";
 import { Link as Link2 } from "react-router-dom";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
-import { DesktopMenu, MobileMenu, NavIcons } from "./NavBar";
+import { DesktopMenu, MobileMenu } from "./NavBar";
+import { NavIcons } from "./NavIcons";
 
 /**
  * @function Responsive rollbar
@@ -46,9 +47,7 @@ const NavAnimation = memo(() => {
     */
     <Box mt={5}>
       <InView
-        // rootMargin={'20%'}
         initialInView={true}
-        // onChange={(inView) => console.log('Inview:', inView)}
         threshold={0.2}
         //Usamos InView de API "react-intersection-observer" para animar la barra de navegación
         // We use "InView" from "react-intersection-observer" API to make the Nav Bar animated
@@ -79,14 +78,14 @@ const NavAnimation = memo(() => {
                       alt="Logo"
                       mt={{ base: 2 }}
                       boxSize={{ base: 20 }}
+                      mb={2}
                     />
                   </Link2>
                 </Stack>
                 <Flex
-                  // Aca el menu de opciones
+                  // Aca el menú de opciones
                   // Here the option menu
                   display={{ base: "none", md: "flex" }}
-                  // alignItems='end'
                   top={{ md: -165 }}
                   pos={"absolute"}
                   left={44}
@@ -125,7 +124,6 @@ const NavAnimation = memo(() => {
               delay={0.5}
             >
               <Flex
-                // bg='inherit'
                 color={colorFlex}
                 ref={ref}
                 borderBottom={1}
@@ -160,7 +158,6 @@ const NavAnimation = memo(() => {
                   flex={{ base: 1 }}
                   justify={{ base: "center", md: "start" }}
                 >
-                  {/* <Stack display='inline' align={aligNav}> */}
                   <Box
                     position="relative"
                     top={4}
@@ -175,14 +172,10 @@ const NavAnimation = memo(() => {
                       />
                     </Link2>
                   </Box>
-                  {/* </Stack> */}
-                  {/* <DesktopMenu /> */}
-                  {/* Ver aca  */}
                   <Flex
                     // Aca el menu de opciones
                     // Here the option menu
                     display={{ base: "none", md: "flex" }}
-                    // alignItems='end'
                     top={{ base: -50, md: -130 }}
                     pos={"relative"}
                     left={{ md: 28 }}
@@ -191,7 +184,6 @@ const NavAnimation = memo(() => {
                   </Flex>
                 </Flex>
                 <NavIcons
-                  // mr={{ md: 0 }}
                   mt={{ lg: 5 }}
                   // Aca los íconos de la barra de navegación
                   // here the navbar icons
