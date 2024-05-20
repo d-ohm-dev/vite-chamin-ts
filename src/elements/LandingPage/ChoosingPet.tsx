@@ -18,27 +18,9 @@ import {
   Image,
   Stack,
   Text,
-  // Heading,
   useColorModeValue,
   Center,
 } from '@chakra-ui/react'
-
-// interface FeatureProps {
-//   heading: string
-//   text: string
-// }
-
-// const Feature = ({ heading, text }: FeatureProps) => {
-//   return (
-//     <GridItem>
-//       <chakra.h3 fontSize="xl" fontWeight="600">
-//         {heading}
-//       </chakra.h3>
-//       <chakra.p>{text}</chakra.p>
-//     </GridItem>
-//   )
-// }
-
 
 
 const imagesPV = [
@@ -124,7 +106,6 @@ export default function ChoosingPet() {
                           top: 5,
                           left: 0,
                           backgroundImage: `url(${data.image})`,
-                          // backgroundImage: 'none',
                           filter: 'blur(15px)',
                           zIndex: -1,
                         }}

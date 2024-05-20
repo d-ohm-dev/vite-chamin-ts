@@ -227,16 +227,6 @@ function ProductAddToCart() {
                           <Badge borderRadius="full" px="2" colorScheme="teal">
                             {data.isNew ? "Nuevo" : "Mas Vendido"}
                           </Badge>
-                          {/* <Box
-                        color='gray.500'
-                        fontWeight='semibold'
-                        letterSpacing='wide'
-                        fontSize='xs'
-                        textTransform='uppercase'
-                        ml='2'
-                      >
-                        {property.beds} beds &bull; {propertyhs} baths 
-                    </Box>             */}
                         </Box>
                         <Box
                           mt="1"
