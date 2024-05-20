@@ -21,7 +21,6 @@ dist-ssr
 .git
 .prettierrc
 .eslintrc.cjs
-.gitignore
 
 # Editor directories and files
 .vscode/*
