@@ -1,7 +1,7 @@
-import userImg from "../../assets/icons/usuario3.png";
-import userImgInv from "../../assets/icons/usuario3inv.png";
-import shoppingCart from "../../assets/icons/Copia de carrito-de-compras.png";
-import shoppingCartInv from "../../assets/icons/Copia de carrito-de-comprasNew.png";
+import userImg from "../../../assets/icons/usuario3.png";
+import userImgInv from "../../../assets/icons/usuario3inv.png";
+import shoppingCart from "../../../assets/icons/Copia de carrito-de-compras.png";
+import shoppingCartInv from "../../../assets/icons/Copia de carrito-de-comprasNew.png";
 import {
   Box,
   Image,
@@ -45,7 +45,7 @@ export function NavIcons({ ...props }) {
         left={{ md: 10, lg: 0 }}
         {...props}
       >
-        <Box w={{ base: 9 }} mb={{ md: 8, lg: 10 }}>
+        <Box w={{ md: 9, lg: 9 }} mb={{ md: 8, lg: 10 }}>
           <Popover
             trigger={"hover"}
             placement={"bottom-end"}

@@ -13,7 +13,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import ColorModeSwitcher from "../LandingPage/ColorModeSwitcher";
+import ColorModeSwitcher from "../../LandingPage/ColorModeSwitcher";
 import NavAnimation from "./NavAnimation";
 
 /**
@@ -26,7 +26,7 @@ export default function Navbar() {
 
   return (
     <Box top={0}>
-      <ColorModeSwitcher float={"inline-end"} />
+      <ColorModeSwitcher float={"inline-end"} autoFocus />
       <NavAnimation />
       <Collapse in={isOpen} animateOpacity>
         <MobileMenu />
@@ -52,11 +52,7 @@ export const DesktopMenu = ({ ...props }) => {
   );
 
   return (
-    <Stack
-      direction={"row"}
-      spacing={{ base: 0, md: 4, lg: 18, xl: 20 }}
-      ml={{ base: 0, md: 5, lg: 18, xl: 32 }}
-    >
+    <Stack direction={"row"} spacing={{ base: 0, md: 4, lg: 18, xl: 20 }}>
       {
         // Recorremos el Array navItem declarado mas abajo para devolver por pantalla de escritorio sus valores
         // iteration through navItem array declared at the end to returns on desktop display it values

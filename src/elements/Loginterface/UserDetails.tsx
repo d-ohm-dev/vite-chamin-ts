@@ -6,7 +6,7 @@ import {
   // useSearchParams
 } from "react-router-dom";
 import { UserID } from "../../models/db";
-import Welcome from "./Welcome";
+// import Welcome from "./Welcome";
 
 export default function UserDetail() {
   /**
@@ -25,7 +25,8 @@ export default function UserDetail() {
     <Box>
       Welcome {user.name}!
       <br />
-      <Welcome />
+      {/* <Welcome /> */}
+      {}
     </Box>
   );
 }

@@ -1,5 +1,5 @@
-import logo from "../../assets/fotos/logo.png";
-import invlogo from "../../assets/fotos/invlogo.png";
+import logo from "../../../assets/fotos/logo.png";
+import invlogo from "../../../assets/fotos/invlogo.png";
 import {
   Box,
   Flex,
@@ -16,7 +16,7 @@ import { memo } from "react";
 import { InView } from "react-intersection-observer";
 import { Link as Link2 } from "react-router-dom";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
-import { DesktopMenu, MobileMenu } from "./NavBar";
+import { DesktopMenu, MobileMenu } from ".";
 import { NavIcons } from "./NavIcons";
 
 /**
@@ -88,7 +88,7 @@ const NavAnimation = memo(() => {
                   display={{ base: "none", md: "flex" }}
                   top={{ md: -165 }}
                   pos={"absolute"}
-                  left={44}
+                  left={{ md: 56, lg: 52, xl: 72 }}
                 >
                   <Flex
                     //Este Flex renderiza solo en vista de móviles
@@ -111,8 +111,11 @@ const NavAnimation = memo(() => {
                     {isOpen && <MobileMenu />}
                   </Flex>
 
-                  <DesktopMenu fontSize={"xs"} ml={{ md: 16, xl: 10 }} />
-                  <NavIcons mt={{ md: 48 }} ml={{ md: 1, lg: 52 }} />
+                  <DesktopMenu
+                    fontSize={"xs"}
+                    ml={{ md: 16, lg: 24, xl: 16 }}
+                  />
+                  <NavIcons mt={{ md: 48 }} ml={{ md: -7, lg: 32, xl: 56 }} />
                 </Flex>
               </Box>
             </SlideFade>
@@ -178,13 +181,17 @@ const NavAnimation = memo(() => {
                     display={{ base: "none", md: "flex" }}
                     top={{ base: -50, md: -130 }}
                     pos={"relative"}
-                    left={{ md: 28 }}
+                    left={{ md: 28, xl: 56 }}
                   >
-                    <DesktopMenu mr={{ lg: 24, xl: 16, "2xl": 36 }} />
+                    <DesktopMenu
+                      mr={{ md: 20, lg: 24, xl: 16, "2xl": 36 }}
+                      ml={{ md: 12, lg: 18, xl: 12 }}
+                    />
                   </Flex>
                 </Flex>
                 <NavIcons
-                  mt={{ lg: 5 }}
+                  mt={{ md: 10 }}
+                  ml={{ md: -15 }}
                   // Aca los íconos de la barra de navegación
                   // here the navbar icons
                 />

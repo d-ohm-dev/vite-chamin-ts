@@ -13,7 +13,6 @@ const ColorModeSwitcher = ({ ...props }) => {
   return (
     <Link to={`${location.pathname}`} reloadDocument>
       <IconButton
-        autoFocus
         size="md"
         fontSize="lg"
         aria-label={`Switch to ${mode} mode`}
